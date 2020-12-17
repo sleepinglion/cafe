@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+#lock "~> 3.14.1"
 
 set :application, "cafe"
 set :repo_url, "git@github.com:sleepinglion/cafe.git"
@@ -24,7 +24,7 @@ set :pty, true
 append :linked_files, "config/database.yml",".env"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/assets", "public/uploads"}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -33,7 +33,33 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-set :keep_releases, 5
+#set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+#
+namespace :deploy do
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      within release_path do
+        execute :rake, 'tmp:clear'
+      end
+    end
+  end
+
+  desc 'Refresh sitemap'
+  task :refresh_sitemap do
+    on roles(:app), in: :sequence, wait: 1 do
+      within release_path do
+        with rails_env: (fetch(:rails_env) || fetch(:stage)) do
+          execute :rake, 'sitemap:refresh'
+        end
+      end
+    end
+  end
+
+  after :finishing, 'deploy:refresh_sitemap'
+  after :finishing, 'deploy:cleanup'
+end
+
