@@ -71,5 +71,20 @@ group :test do
   gem 'webdrivers'
 end
 
+group :production do
+  gem 'asset_sync','~> 2.8'
+  gem 'fog-azure-rm'
+  gem 'mysql2'
+  gem 'redis'
+  gem 'redis-store',github: 'redis-store/redis-store'
+  gem 'dotenv-rails'
+  gem 'recaptcha', :require => 'recaptcha/rails'
+  gem 'rails-letsencrypt'
+
+  # Redis Cache
+  gem 'redis-rails'
+  gem 'redis-rack-cache'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
