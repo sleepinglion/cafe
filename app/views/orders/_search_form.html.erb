@@ -1,0 +1,97 @@
+<%
+  date_p1=false;
+  date_p2=false;
+  date_p3=false;
+  date_p4=false;
+  date_p5=false;
+  date_p6=false;
+  date_pa=true;
+
+  if params[:date_p]=='0'
+    date_pa=false
+    date_p1=true
+  end
+
+  if params[:date_p]=='7'
+    date_pa=false
+    date_p2=true
+  end
+
+  if params[:date_p]=='30'
+    date_pa=false
+    date_p3=true
+  end
+
+  if params[:date_p]=='90'
+    date_pa=false
+    date_p4=true
+  end
+
+  if params[:date_p]=='180'
+    date_pa=false
+    date_p5=true
+  end
+
+  if params[:date_p]=='365'
+    date_pa=false
+    date_p6=true
+  end
+
+%>
+<%= form_with( method: "get", class: "card") do %>
+<div class="card-body">
+  <div id="default_period_form" class="col-12 form-group">
+    <label for="start_date"><%=t(:transaction_date) %></label>
+    <div class="form-row">
+      <div class="col-6">
+        <div class="input-group input-daterange">
+          <%=date_field_tag(:start_date,params[:start_date],{:class=>"form-control"}) %>
+          <div class="input-group-addon">~</div>
+          <%=date_field_tag(:end_date,params[:end_date],{:class=>"form-control"}) %>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <%= radio_button_tag 'date_p', 0, date_p1,{:class=>"form-check-input" } %> <%=t(:today) %>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <%= radio_button_tag 'date_p', 7, date_p2,{:class=>"form-check-input" } %> <%=t(:week) %>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <%= radio_button_tag 'date_p', 30, date_p3,{:class=>"form-check-input" } %> <%=t(:one, scope:[:datetime,:distance_in_words,:x_months]) %>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <%= radio_button_tag 'date_p', 90, date_p4,{:class=>"form-check-input" } %> <%=t(:other,count: 3, scope:[:datetime,:distance_in_words,:x_months]) %>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <%= radio_button_tag 'date_p', 180, date_p5,{:class=>"form-check-input" } %> <%=t(:other,count: 6, scope:[:datetime,:distance_in_words,:x_months]) %>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <%= radio_button_tag 'date_p', 365, date_p6,{:class=>"form-check-input" } %> <%=t(:year) %>
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <%= radio_button_tag 'date_p', 'all', date_pa,{:class=>"form-check-input" } %> <%=t(:all_period) %>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-12 form-group">
+    <%= submit_tag(t(:search), :class => "btn btn-success") %>
+  </div>
+</div>
+<% end %>

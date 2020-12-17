@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <article class="col-12">
+      <h2 class="float-left hidden-title"><%= t(:User_list) %></h2>
+      <div class="float-right">
+        <p class="summary">
+          <span id="list_count" style="display:none"><%= @user_count %></span>
+          <%= raw t(:there_are_n_users, count: @user_count) %>
+        </p>
+      </div>
+      <table class="table table-striped table-hover">
+        <colgroup>
+          <col style="width:120px">
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <% if can?(:update, User) || can?(:delete, User) %>
+            <col<%= manage_width(User) %>>
+          <% end %>
+        </colgroup>
+        <thead class="thead-default">
+        <tr>
+          <th class="text-center"><%= t(:display, scope: [:activerecord, :attributes, :user]) %></th>
+          <th><%= t(:name, scope: [:activerecord, :attributes, :user]) %></th>
+          <th class="text-right"><%= t(:phone, scope: [:activerecord, :attributes, :user]) %></th>
+          <th class="text-right"><%= t(:birthday, scope: [:activerecord, :attributes, :user]) %></th>
+          <th class="text-right"><%= t(:address, scope: [:activerecord, :attributes, :user]) %></th>
+          <th class="text-right"><%= t(:updated_at, scope: [:activerecord, :attributes, :user]) %></th>
+          <% if can?(:update, User) || can?(:delete, User) %>
+            <th class="text-center"><%= t(:manage) %></th>
+          <% end %>
+        </tr>
+        </thead>
+        <tbody>
+        <% unless @users.empty? %>
+          <% @users.each_with_index  do |user,index| %>
+            <tr>
+              <td class="text-center">
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input js-switch" id="user_display<%=index %>" value="<%=user.id %>" <% if user.display %> checked<% end %>>
+                </div>
+              </td>
+              <td><%= user.name %></td>
+              <td class="text-right"><%= user.phone %></td>
+              <td class="text-right">
+                <% if user.birthday.present? %>
+                  <%= I18n.l user.birthday.to_date, :format => :long %>
+                <% else %>
+                  <%= t(:not_insert) %>
+                <% end %>
+              </td>
+              <td class="text-right">
+                <% if user.address.present? %>
+                  <%= address %>
+                <% else %>
+                  <%= t(:not_insert) %>
+                <% end %>
+              </td>
+              <td class="text-right"><%= I18n.l user.created_at.to_date, :format => :long %></td>
+              <% if can?(:update, user) or can?(:delete, user) %>
+                <td class="text-right">
+                  <% if can? :update, user %>
+                    <%= link_to edit_user_path(user), :class => "btn btn-secondary" do %>
+                      <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
+                    <% end %>
+                  <% end %>
+                  <% if can? :delete, user %>
+                    <%= link_to user_path(user), :method => :delete, :data => { :confirm => t(:delete_confirm) }, :class => "btn btn-danger" do %>
+                      <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
+                    <% end %>
+                  <% end %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="7" class="text-center"><%= t(:no_data) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= paginate @users %>
+      <%= link_to t(:add), new_user_path, :class => "btn btn-primary" %>
+    </article>
+  </div>
+</div>

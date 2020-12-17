@@ -1,0 +1,87 @@
+<div id="accounts" class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= render :partial => 'accounts/search_form' %>
+    </div>
+    <article class="col-12">
+      <h2 class="float-left hidden-title"><%=t(:account_list) %></h2>
+      <div class="float-right">
+        <p class="summary">
+          <span id="list_count" style="display:none"><%=@account_count %></span>
+          <%=raw t(:there_are_n_accounts,count: @account_count) %>
+        </p>
+      </div>
+      <table class="table table-striped">
+        <colgroup>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+          <% if can?(:update, @account) or can?(:delete, @account) %>
+          <col style="width:150px" />
+          <% end %>
+        </colgroup>
+        <thead class="thead-default">
+        <tr>
+          <th class="text-center"><%=t(:transaction_date,scope:[:activerecord,:attributes,:account]) %></th>
+          <th><%=t(:user_id,scope:[:activerecord,:attributes,:account]) %></th>
+          <th><%=t(:account_category_id,scope:[:activerecord,:attributes,:account]) %></th>
+          <th class="text-right"><%=t(:amount) %></th>
+          <th class="text-right"><%=t(:payment_method) %></th>
+          <% if can?(:update, @account) or can?(:delete, @account) %>
+          <th class="text-center"><%=t(:manage) %></th>
+          <% end  %>
+        </tr>
+        </thead>
+        <tbody>
+        <% unless @accounts.empty? %>
+          <% @accounts.each do |account| %>
+        <tr>
+          <td class="text-center"><%= I18n.l account.transaction_date, :format => :long %></td>
+          <td><%=account.user.name %></td>
+          <td><%=account.account_category.title %></td>
+          <td class="text-right">
+            <%=number_to_currency (account.cash+account.credit+account.point) %>
+          </td>
+          <td class="text-right">
+            <%=display_payment_method([account]) %>
+          </td>
+          <% if can?(:update, account) or can?(:delete, account) %>
+            <td class="text-right">
+              <% if can? :update, account %>
+                <%= link_to edit_account_path(account), :class => "btn btn-secondary" do %>
+                  <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
+                <% end %>
+              <% end %>
+              <% if can? :delete, account %>
+                <%= link_to account_path(account), :method => :delete, :data => { :confirm => t(:delete_confirm) }, :class => "btn btn-danger" do %>
+                  <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
+                <% end %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="6" class="text-center"><%= t(:no_data) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </article>
+    <article class="col-12">
+      <table class="table table-striped table-hover">
+        <tr>
+          <td width='50%'></td>
+          <td>
+          </td>
+          <td width='20%'></td>
+        </tr>
+      </table>
+        <%= paginate @accounts %>
+    </article>
+  </div>
+</div>
+

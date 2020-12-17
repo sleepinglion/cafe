@@ -1,0 +1,25 @@
+<div class="col-12 col-lg-8 list">
+  <div class="row">
+    <h3 class="col-12 no-display-title"><%= t(:product_list) %></h3>
+    <% unless @products.empty? %>
+      <% @products.each do |product| %>
+        <article class="col-12 col-sm-6 col-xxl-3">
+          <div class="card">
+            <h3 class="card-header text-center"><%= product.title %></h3>
+            <div class="card-body">
+              <input type="hidden" name="product_id[]" value="<%= product.id %>">
+              <input type="hidden" name="price[]" value="<%= product.price %>">
+              <div class="text-center">
+                <% if product.product_picture.present? %>
+                <%=image_tag product.product_picture.picture.medium_thumb.url %>
+                  <% end %>
+                <p><%= number_to_currency product.price %></p>
+              </div>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    <% end %>
+  </div>
+  <%= paginate @products %>
+</div>

@@ -1,0 +1,28 @@
+<article>
+  <h3><%=t(:payment_method) %>,<%=t(:total) %></h3>
+  <div class="card">
+    <input type="hidden" id="order_count" value="" />
+    <input type="hidden" id="no_data_t" value="<%= t(:no_exists_order) %>" />
+    <div class="card-body">
+      <div id="payment_method" class="form-group">
+        <div class="form-check form-check-inline">
+          <input name="payment_method" id="p_type1" value="cash" type="radio" checked="checked">
+          <label for="p_type1" class="form-check-label">&nbsp;<%= t(:cash) %></label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input name="payment_method" id="p_type2" value="credit" type="radio">
+          <label for="p_type2" class="form-check-label">&nbsp;<%= t(:credit) %></label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input name="payment_method" id="p_type3" value="point" type="radio">
+          <label for="p_type3" class="form-check-label"><%= t(:point) %></label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input name="payment_method" id="p_type4" value="log" type="radio">
+          <label for="p_type4" class="form-check-label"><%= t(:log) %></label>
+        </div>
+      </div>
+      <%= t(:total_price) %>: <span id="total_price"></span><%=t(:currency) %>
+    </div>
+  </div>
+</article>

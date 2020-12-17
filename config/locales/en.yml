@@ -1,0 +1,468 @@
+en:
+  service_name: "SL Cafe"
+  hello: "Hello world"
+
+  korean: '한국어'
+  chineses: '汉语'
+  english: 'english'
+
+  search : "검색"
+  submit : "제출"
+
+  search_order : "주문내역"
+  search_user : "사용자검색"
+  select_user : "사용자선택"
+  access_card : "출입카드"
+  name : "이름"
+  phone : "전화번호"
+  payment_n_total : "결제방법, 합계"
+  manage : "관리"
+  image : "이미지"
+  check : "선택"
+  transaction_date : '거래일'
+  display : '표시함'
+  no_display : '표시안함'
+
+  add_order : "주문추가"
+  order : "주문"
+  product : "상품"
+  price : "가격"
+  quantity : "수량"
+  cancel : "취소"
+  cash : "현금"
+  credit : "신용카드"
+  point : "포인트"
+  total_price : "합계"
+  currency : "원"
+  address : "주소"
+  jedearoweb : '제대로웹'
+  payment_method : '결제방법'
+  total : '합계'
+  amount : '합계액'
+
+  login_first : "먼저 로그인 해주세요"
+  no_exists_order : "주문이 없습니다"
+
+  add : "신규"
+
+  login_id :  "login ID"
+  password : "password"
+  login_p_id : "아이디를 써주세요"
+  login_p_password : "비밀번호를 써주세요"
+  login : "login"
+  logout : "logout"
+  remember_me : "remember me"
+  new_user: 'New user'
+  delete_user: 'Cancel membership'
+
+  today : 'today'
+  week : 'week'
+  year : 'year'
+  all_period : 'all period'
+  current_month : 'current month'
+  next_month : 'next month'
+
+  there_are_n_accounts: "정산 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
+  there_are_n_orders: "주문 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
+  there_are_n_products : "상품 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
+  there_are_n_product_categories : "상품분류 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
+  there_are_n_users : "사용자가 <strong class=\"mark\">%{count}명</strong> 있습니다"
+
+  success_title : '처리되었습니다'
+  error_title : '죄송합니다'
+  login_page : '로그인 화면'
+  delete_confirm: '정말로삭제합니까?'
+  delete_cascade_confirm: "중대 경고!!\n이 항목을 삭제할 경우 이 항목뿐아니라 이 항목의 정보를 포함하는 모든 데이터가 삭제됩니다.\n그래도 진행하시겠습니까?"
+
+  link_list: '목록으로'
+  link_new: '새로작성'
+  link_show: '상세보기'
+  link_edit: '수정'
+  link_delete: '삭제'
+
+  devise:
+    confirmations:
+      confirmed: Your email address has been successfully confirmed.
+      new:
+        resend_confirmation_instructions: Resend confirmation instructions
+      send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
+    failure:
+      already_authenticated: You are already signed in.
+      inactive: Your account is not activated yet.
+      invalid: Invalid email or password.
+      last_attempt: You have one more attempt before your account is locked.
+      locked: Your account is locked.
+      not_found_in_database: Invalid email address or password.
+      timeout: Your session expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
+      unconfirmed: You have to confirm your email address before continuing.
+    mailer:
+      confirmation_instructions:
+        action: Confirm my account
+        greeting: Welcome %{recipient}!
+        instruction: 'You can confirm your account email through the link below:'
+        subject: Confirmation instructions
+      password_change:
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your password has been changed.
+        subject: Password Changed
+      reset_password_instructions:
+        action: Change my password
+        greeting: Hello %{recipient}!
+        instruction: Someone has requested a link to change your password, and you can do this through the link below.
+        instruction_2: If you didn't request this, please ignore this email.
+        instruction_3: Your password won't change until you access the link above and create a new one.
+        subject: Reset password instructions
+      unlock_instructions:
+        action: Unlock my account
+        greeting: Hello %{recipient}!
+        instruction: 'Click the link below to unlock your account:'
+        message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        subject: Unlock instructions
+    omniauth_callbacks:
+      failure: Could not authenticate you from %{kind} because "%{reason}".
+      success: Successfully authenticated from %{kind} account.
+    passwords:
+      edit:
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
+      new:
+        forgot_your_password: Forgot your password?
+        send_me_reset_password_instructions: Send me reset password instructions
+      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Your password has been changed successfully.
+    registrations:
+      destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
+      edit:
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+        title: Edit %{resource}
+        unhappy: Unhappy?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+      new:
+        sign_up: Sign up
+      signed_up: Welcome! You have signed up successfully.
+      signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
+      signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
+      updated: Your account has been updated successfully.
+    sessions:
+      already_signed_out: Signed out successfully.
+      new:
+        sign_in: Sign in
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        forgot_your_password: Forgot your password?
+        sign_in: Sign in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Sign up
+    unlocks:
+      new:
+        resend_unlock_instructions: Resend unlock instructions
+      send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
+      send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
+
+  views :
+    pagination :
+      truncate : '&nbsp;...&nbsp;'
+      previous : 'pre'
+      last : 'last'
+      next : 'next'
+      first : 'first'
+  date:
+    abbr_day_names:
+      - Sun
+      - Mon
+      - Tue
+      - Wed
+      - Thu
+      - Fri
+      - Sat
+    abbr_month_names:
+      -
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+    day_names:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%B %d, %Y'
+      short: ! '%b %d'
+    month_names:
+      -
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+    order:
+      - :year
+      - :month
+      - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: ! '%{count} days'
+      x_minutes:
+        one: 1 minute
+        other: ! '%{count} minutes'
+      x_months:
+        one: 1 month
+        other: ! '%{count} months'
+      x_seconds:
+        one: 1 second
+        other: ! '%{count} seconds'
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match confirmation
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      record_invalid: ! 'Validation failed: %{errors}'
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      already_confirmed: "was already confirmed, please try signing in"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+    template:
+      body: ! 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: ! '%{count} errors prohibited this %{model} from being saved'
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u%n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: $
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', and '
+      two_words_connector: ! ' and '
+      words_connector: ! ', '
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+    pm: pm
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    models:
+      product_category: '상품분류'
+      product: '상품'
+      order: '주문'
+      user: '회원'
+      account: '정산'
+      account_product: '상품별-매출'
+      account_product_category: '상품분류별-매출'
+    attributes :
+      company :
+        title : '회사명'
+      branch :
+        title : '지점명'
+      admin :
+        login_id : '아이디'
+        name : '이름'
+        email : '이메일'
+        password : '비밀번호'
+        password_confirmation : '비밀번호확인'
+      admin_picture :
+        picture : '사진'
+      account :
+        account_category_id : '거래내용'
+        user_id : '사용자'
+        transaction_date : '거래일'
+        cash : '현금'
+        credit : '카드'
+        point : '포인트'
+        updated_at : '수정일시'
+        created_at : '생성일시'
+      product_category :
+        title : '분류명'
+        order_no : '순서'
+        products_count : '해당상품수'
+        display : '표시'
+        updated_at : '수정일시'
+        created_at : '생성일시'
+      product :
+        product_category_id: '상품분류'
+        title : '상품명'
+        price : '가격'
+        order_no : '순서'
+        display : '표시'
+        updated_at : '수정일시'
+        created_at : '생성일시'
+      product_picture :
+        picture : '이미지'
+      order :
+        user_id : '사용자'
+        original_price : '원가'
+        discount : '할인'
+        price : '판매가'
+        payment : '결제'
+        transaction_date : '거래일'
+        updated_at : '수정일시'
+        created_at : '생성일시'
+      user :
+        name : '이름'
+        phone : '전화번호'
+        email : 'E-mail'
+        birthday : '생일'
+        address : '주소'
+        display : '표시'
+        updated_at : '수정일시'
+        created_at : '생성일시'
+    errors:
+      models :
+        user :
+          attributes :
+            login_id :
+              not_found : '해당 이메일이 존재하지 않습니다'

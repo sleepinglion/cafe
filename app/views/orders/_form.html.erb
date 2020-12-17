@@ -1,0 +1,8 @@
+<%= form_with(model: order, local: true, :html=>{:id=>"order_form"}) do |form| %>
+  <%= render 'selected_user',:form => form %>
+  <%= render 'order_list',:order => form %>
+  <%= render 'payment' %>
+  <div class="form-group">
+    <%= form.submit :class=>"btn btn-primary btn-lg btn-block" %>
+  </div>
+<% end %>

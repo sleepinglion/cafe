@@ -1,0 +1,10 @@
+class Branch < ApplicationRecord
+  validates_presence_of :title
+  belongs_to :company, counter_cache: true
+  has_many :admins, dependent: :destroy
+  has_many :users, dependent: :destroy
+  has_many :product_categories, dependent: :destroy
+  has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :accounts, dependent: :destroy
+end

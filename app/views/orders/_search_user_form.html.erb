@@ -1,0 +1,49 @@
+<article id="user_search"<% if @user %> style="display:none"<% end %>>
+  <h3><span><%= t(:search_user) %></span></h3>
+  <%= form_with(url: "/", method: "get", class: "card") do %>
+    <div class="card-body">
+        <div class="form-group non-anon">
+        <div class="form-check form-check-inline">
+          <input type="radio" name="search_type" id="type1" value="name"<%=user_search_type_check('name',true) %>>
+          <label for="type1" class="form-check-label">&nbsp;<%= t(:name) %></label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" name="search_type" id="type2" value="phone"<%=user_search_type_check('phone') %>>
+          <label for="type2" class="form-check-label">&nbsp;<%= t(:phone) %></label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" name="search_type" id="type3" value="card_no"<%=user_search_type_check('card_no') %>>
+          <label for="type3" class="form-check-label">&nbsp;<%= t(:access_card) %></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div id="search_select" class="non-anon">
+          <label for="u_search_word" id="search_label">
+            <% case params[:user_search_type]
+            when 'name'
+              search_label=t(:name)
+               when 'phone'
+                 search_label=t(:phone)
+               when 'card_no'
+                 search_label=t(:access_card)
+                 else
+                   search_label=t(:name)
+               end
+            %>
+            <%=search_label %>
+          </label>
+          <div class="input-group">
+            <%= text_field_tag(:search_word, params[:search_word], :class => "form-control") %>
+            <span class="input-group-btn">
+              <%= submit_tag(t(:search), :class => "btn btn-success") %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div id="user_select_list_layer" class="non-anon">
+
+      </div>
+        <%= render :partial => 'orders/select_user' %>
+    </div>
+<% end %>
+</article>

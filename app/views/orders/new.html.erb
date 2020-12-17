@@ -1,0 +1,17 @@
+<div id="order_add" class="container">
+  <div class="row">
+    <%= render :partial => 'layouts/notice', :locals=>{:errors=>@order.errors, :notice=>notice,:alert=>alert} %>
+  </div>
+  <div class="row">
+    <%= render 'products/nav' %>
+    <%= render 'products/product_list' %>
+    <aside class="col-12 col-lg-4 left-form">
+      <article class="row">
+        <div class="col-12">
+          <%= render 'search_user_form' %>
+          <%= render 'form', order: @order %>
+        </div>
+      </article>
+    </aside>
+  </div>
+</div>

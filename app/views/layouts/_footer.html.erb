@@ -1,0 +1,18 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <address class="col-12">
+        <a href="https://www.sleepinglion.pe.kr" target="_blank"><%=t(:jedearoweb) %></a>
+        &nbsp;&nbsp; CopyLeft. 2020, SL. All wrongs reserved.
+      </address>
+      <form action="" class="form-inline">
+        <select name="locale" class="form-control">
+          <option value="zh-CN"<% if I18n.locale.to_s=='zh-CN' %> selected="selected"<% end %>><%=t(:chineses) %></option>
+          <option value="en"<% if I18n.locale.to_s=='en' %> selected="selected"<% end %>><%=t(:english) %></option>
+          <option value="ko"<% if I18n.locale.to_s=='ko' %> selected="selected"<% end %>><%=t(:korean) %></option>
+        </select>
+        <input type="submit" class="btn" value="<%=t(:submit) %>" />
+      </form>
+    </div>
+  </div>
+</footer>
