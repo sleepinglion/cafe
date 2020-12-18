@@ -22,6 +22,8 @@ Admin.create!(:id=>3,:branch_id=>3,:login_id=>'pp_admin',:email => '',:name=>'�
 AccountCategory.create!(id: 1, title: '구입', enable: true)
 AccountCategory.create!(id: 2, title: '수정', enable: true)
 AccountCategory.create!(id: 3, title: '환불', enable: true)
+AccountCategory.create!(id: 4, title: '포인트충전', enable: true)
+AccountCategory.create!(id: 5, title: '포인트환불', enable: true)
 
 ProductCategory.create!(id: 1, branch_id: 1, title: '커피', enable: true)
 ProductCategory.create!(id: 2, branch_id: 1, title: '음료', enable: true)

@@ -3,7 +3,7 @@
     <div class="card-body">
       <div class="form-group">
         <%= form.label :product_category_id %>
-        <%= form.select :product_category_id,options_from_collection_for_select(ProductCategory.where(:branch_id=>current_admin.branch_id,:enable=>true).all, 'id', 'title',product.product_category_id),{},{:class=>"form-control"} %>
+        <%= form.select :product_category_id,options_from_collection_for_select(ProductCategory.where(:branch_id=>current_admin.branch_id,:display=>true,:enable=>true).all, 'id', 'title',product.product_category_id),{},{:class=>"form-control"} %>
       </div>
       <div class="form-group">
         <%= form.label :title %>

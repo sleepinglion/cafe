@@ -62,10 +62,13 @@ en:
   current_month : 'current month'
   next_month : 'next month'
 
+  no_data : '해당 데이터가 없습니다.'
+  not_insert : '미입력'
   there_are_n_accounts: "정산 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_orders: "주문 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_products : "상품 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_product_categories : "상품분류 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
+  there_are_n_points : "포인트가 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_users : "사용자가 <strong class=\"mark\">%{count}명</strong> 있습니다"
 
   success_title : '처리되었습니다'
@@ -396,70 +399,74 @@ en:
       <<: *errors
   activerecord:
     models:
-      product_category: '상품분류'
-      product: '상품'
-      order: '주문'
-      user: '회원'
-      account: '정산'
-      account_product: '상품별-매출'
-      account_product_category: '상품분류별-매출'
+      product_category: 'product category'
+      product: 'product'
+      order: 'order'
+      user: 'user'
+      account: 'account'
     attributes :
       company :
-        title : '회사명'
+        title : 'company'
       branch :
-        title : '지점명'
+        title : 'branch'
       admin :
-        login_id : '아이디'
-        name : '이름'
-        email : '이메일'
-        password : '비밀번호'
-        password_confirmation : '비밀번호확인'
+        login_id : 'login id'
+        name : 'name'
+        email : 'email'
+        password : 'password'
+        password_confirmation : 'password confirmation'
       admin_picture :
-        picture : '사진'
+        picture : 'picture'
       account :
-        account_category_id : '거래내용'
-        user_id : '사용자'
-        transaction_date : '거래일'
-        cash : '현금'
-        credit : '카드'
-        point : '포인트'
-        updated_at : '수정일시'
-        created_at : '생성일시'
+        account_category_id : 'account category'
+        user_id : 'user'
+        transaction_date : 'transaction date'
+        cash : 'cash'
+        credit : 'credit'
+        point : 'point'
+        updated_at : 'updated at'
+        created_at : 'created at'
       product_category :
-        title : '분류명'
-        order_no : '순서'
-        products_count : '해당상품수'
-        display : '표시'
-        updated_at : '수정일시'
-        created_at : '생성일시'
+        title : 'product category'
+        order_no : 'order no'
+        products_count : 'products count'
+        display : 'display'
+        updated_at : 'updated at'
+        created_at : 'created at'
       product :
-        product_category_id: '상품분류'
-        title : '상품명'
-        price : '가격'
-        order_no : '순서'
-        display : '표시'
-        updated_at : '수정일시'
-        created_at : '생성일시'
+        product_category_id: 'product category'
+        title : 'title'
+        price : 'price'
+        order_no : 'order no'
+        display : 'display'
+        updated_at : 'updated at'
+        created_at : 'created at'
       product_picture :
-        picture : '이미지'
+        picture : 'picture'
+      point :
+        user_id : 'user'
+        point : 'point'
+        point_logs_count : 'point logs count'
+        updated_at : 'updated at'
+        created_at : 'created at'
       order :
-        user_id : '사용자'
-        original_price : '원가'
-        discount : '할인'
-        price : '판매가'
-        payment : '결제'
-        transaction_date : '거래일'
-        updated_at : '수정일시'
-        created_at : '생성일시'
+        user_id : 'user'
+        original_price : 'original price'
+        discount : 'discount'
+        price : 'price'
+        payment : 'payment'
+        transaction_date : 'transaction date'
+        updated_at : 'updated at'
+        created_at : 'created at'
       user :
-        name : '이름'
-        phone : '전화번호'
+        name : 'name'
+        phone : 'phone :'
         email : 'E-mail'
-        birthday : '생일'
-        address : '주소'
-        display : '표시'
-        updated_at : '수정일시'
-        created_at : '생성일시'
+        birthday : 'birthday'
+        address : 'address'
+        display : 'display'
+        updated_at : 'updated at'
+        created_at : 'created at'
     errors:
       models :
         user :

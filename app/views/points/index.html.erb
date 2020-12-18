@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="float-left hidden-title"><%= t(:point_list) %></h2>
+      <div class="float-right">
+        <p class="summary">
+          <span id="list_count" style="display:none"><%=@point_count %></span>
+          <%=raw t(:there_are_n_points,count: @point_count) %>
+        </p>
+      </div>
+    </div>
+    <article class="col-12">
+      <table class="table table-striped table-hover">
+        <colgroup>
+          <col style="width:120px">
+          <col>
+          <col>
+          <col>
+          <% if can?(:update, Point) || can?(:delete, Point) %>
+            <col<%=manage_width(Point) %>>
+          <% end  %>
+        </colgroup>
+        <thead class="thead-default">
+        <tr>
+          <th class="text-center"><%= t(:user_id,scope:[:activerecord,:attributes,:point]) %></th>
+          <th><%= t(:point,scope:[:activerecord,:attributes,:point]) %></th>
+          <th class="text-right"><%= t(:point_logs_count,scope:[:activerecord,:attributes,:point]) %></th>
+          <th class="text-right"><%= t(:updated_at,scope:[:activerecord,:attributes,:point]) %></th>
+          <% if can?(:update, Point) || can?(:delete, Point) %>
+            <th class="text-center"><%= t(:manage) %></th>
+          <% end  %>
+        </tr>
+        </thead>
+        <tbody>
+        <% unless @points.empty? %>
+          <% @points.each_with_index do |point,index| %>
+            <tr>
+              <td><%= point.user.name %></td>
+              <td class="text-right"><%= number_to_currency point.point %></td>
+              <td class="text-right"><%= point.point_log_counts %></td>
+              <td class="text-right"><%= I18n.l point.created_at.to_date, :format => :long %></td>
+              <% if can?(:update, point) or can?(:delete, point) %>
+                <td class="text-right">
+                  <% if can? :update, point %>
+                    <%= link_to edit_point_path(point), :class => "btn btn-secondary" do %>
+                      <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
+                    <% end %>
+                  <% end %>
+                  <% if can? :delete, point %>
+                    <%= link_to point_path(point), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) }, :class => "btn btn-danger" do %>
+                      <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
+                    <% end %>
+                  <% end %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="5" class="text-center"><%= t(:no_data) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= paginate @points %>
+      <%= link_to t(:add), new_point_path, :class => "btn btn-primary" %>
+    </article>
+  </div>
+</div>

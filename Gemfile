@@ -41,7 +41,7 @@ gem 'gretel'
 gem 'i18n-js'
 gem 'non-stupid-digest-assets'
 gem 'globalize'
-gem 'mini_racer', platforms: :ruby
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -80,6 +80,9 @@ group :production do
   gem 'dotenv-rails'
   gem 'recaptcha', :require => 'recaptcha/rails'
   gem 'rails-letsencrypt'
+
+  gem 'mini_racer', platforms: :ruby
+  gem 'execjs'
 
   # Redis Cache
   gem 'redis-rails'

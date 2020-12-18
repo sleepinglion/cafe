@@ -5,7 +5,7 @@ class Admin < ActiveRecord::Base
     validates_length_of :name, within: 1..60, allow_blank: true
     # mount_uploader :photo, AdminUploader
 
-    belongs_to :branch
+    belongs_to :branch, counter_cache: true
     # has_many :roles_admin
     # has_many :role, through: :roles_admin
 

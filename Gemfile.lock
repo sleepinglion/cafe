@@ -429,6 +429,7 @@ DEPENDENCIES
   carrierwave
   devise
   dotenv-rails
+  execjs
   fog-azure-rm
   globalize
   gretel

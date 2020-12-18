@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout
   before_action :set_locale
+  before_action :get_branch
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def current_ability
@@ -15,6 +16,14 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
     session[:locale] = I18n.locale
+  end
+
+  def get_branch
+    unless current_admin
+        return false
+    end
+
+    @branch=Branch.find(current_admin.branch_id)
   end
 
   def layout

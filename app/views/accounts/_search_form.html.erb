@@ -40,6 +40,17 @@
 %>
 <%= form_with( method: "get", class: "card", id: "account_search_form") do %>
 <div class="card-body">
+  <div class="col-12 form-group">
+    <label for="s_product"><%=t(:product,scope:[:activerecord,:models]) %></label>
+    <div class="form-row">
+      <div class="col-12 col-lg-6">
+    <%= select_tag :product_category_id,options_from_collection_for_select(ProductCategory.where(:branch_id=>current_admin.branch_id,:display=>true,:enable=>true).all, 'id', 'title'),{:class=>"form-control"} %>
+      </div>
+      <div class="col-12 col-lg-6">
+    <%= select_tag :product_id,options_from_collection_for_select(Product.where(:branch_id=>current_admin.branch_id,:display=>true,:enable=>true).all, 'id', 'title'),{:class=>"form-control"} %>
+      </div>
+    </div>
+  </div>
   <div id="default_period_form" class="col-12 form-group">
     <label for="start_date"><%=t(:transaction_date) %></label>
     <div class="form-row">
