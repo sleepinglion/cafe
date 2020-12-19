@@ -8,7 +8,7 @@ Rails.application.config.assets.version = '1.3'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-js_prefix = 'app/assets/javascripts/'
+js_prefix = 'app/javascripts/'
 style_prefix = 'app/assets/stylesheets/'
 image_prefix = 'app/assets/images/'
 
