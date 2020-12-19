@@ -18,7 +18,7 @@ image = Dir["#{image_prefix}**/*"].map { |x| x.gsub(image_prefix, '') }
 scss = Dir["#{style_prefix}**/*.scss"].map { |x| x.gsub(style_prefix, '') }
 
 Rails.application.config.assets.precompile = (javascripts + css + scss + image)
-Rails.application.config.assets.precompile += %w( login.scss )
+Rails.application.config.assets.precompile += %w( login.scss application.js )
 Rails.application.config.assets.precompile << Proc.new { |path|
   if path =~ /\.(eot|svg|ttf|woff|woff2)\z/
     true

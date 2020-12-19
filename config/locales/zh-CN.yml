@@ -393,9 +393,9 @@ zh-CN:
       product_picture : '产品图片'
       order: '订购'
       user: '会员'
-      account: '정산'
+      account: '帐户'
       point : '포인트'
-      operator : '관리자'
+      operator : '经营者'
     attributes :
       company :
         title : '公司名'

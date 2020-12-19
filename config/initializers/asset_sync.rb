@@ -6,15 +6,15 @@ if defined?(AssetSync)
     config.fog_directory = ENV['FOG_DIRECTORY']
 
     # Don't delete files from the store
-    #config.existing_remote_files = "delete"
+    config.existing_remote_files = "delete"
 
     # Automatically replace files with their equivalent gzip compressed version
-    #config.gzip_compression = true
+    config.gzip_compression = true
 
     # Use the Rails generated 'manifest.yml' file to produce the list of files to
     # upload instead of searching the assets directory.
-    #config.manifest = true
+    config.manifest = true
 
-    #config.custom_headers = { '.*' => { cache_control: 'max-age=31536000', expires: 1.year.from_now.httpdate } }
+    config.custom_headers = { '.*' => { cache_control: 'max-age=31536000', expires: 1.year.from_now.httpdate } }
   end
 end
