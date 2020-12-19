@@ -21,9 +21,6 @@ class OrdersController < ApplicationController
       sql_params << params[:end_date].to_date
     end
 
-    puts condition_sql
-    puts sql_params.count
-
     @order_count = Order.where(condition).where(condition_sql,*sql_params).count()
     @orders = Order.where(condition).where(condition_sql,*sql_params).page(params[:page]).per(params[:per_page]).order('id desc');
   end

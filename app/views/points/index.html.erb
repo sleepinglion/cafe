@@ -15,7 +15,8 @@
           <col style="width:120px">
           <col>
           <col>
-          <col>
+          <col style="width:195px">
+          <col style="width:195px">
           <% if can?(:update, Point) || can?(:delete, Point) %>
             <col<%=manage_width(Point) %>>
           <% end  %>
@@ -23,9 +24,10 @@
         <thead class="thead-default">
         <tr>
           <th class="text-center"><%= t(:user_id,scope:[:activerecord,:attributes,:point]) %></th>
-          <th><%= t(:point,scope:[:activerecord,:attributes,:point]) %></th>
+          <th class="text-right"><%= t(:point,scope:[:activerecord,:attributes,:point]) %></th>
           <th class="text-right"><%= t(:point_logs_count,scope:[:activerecord,:attributes,:point]) %></th>
           <th class="text-right"><%= t(:updated_at,scope:[:activerecord,:attributes,:point]) %></th>
+          <th class="text-right"><%= t(:created_at,scope:[:activerecord,:attributes,:point]) %></th>
           <% if can?(:update, Point) || can?(:delete, Point) %>
             <th class="text-center"><%= t(:manage) %></th>
           <% end  %>
@@ -36,8 +38,9 @@
           <% @points.each_with_index do |point,index| %>
             <tr>
               <td><%= point.user.name %></td>
-              <td class="text-right"><%= number_to_currency point.point %></td>
-              <td class="text-right"><%= point.point_log_counts %></td>
+              <td class="text-right"><%= link_to number_to_currency(point.point),point_path(point) %></td>
+              <td class="text-right"><%= link_to point.point_logs_count,point_path(point) %></td>
+              <td class="text-right"><%= I18n.l point.updated_at.to_date, :format => :long %></td>
               <td class="text-right"><%= I18n.l point.created_at.to_date, :format => :long %></td>
               <% if can?(:update, point) or can?(:delete, point) %>
                 <td class="text-right">

@@ -9,8 +9,16 @@ class AccountsController < ApplicationController
 
     condition={branch_id: current_admin.branch_id ,enable: true}
 
-    @account_count = Account.where(condition).count
-    @accounts = Account.where(condition).page(params[:page]).per(params[:per_page]).order('id desc');
+    if params[:product_category_id].present?
+      condition[:products]={:product_category_id=>params[:product_category_id]}
+    end
+
+    if params[:product_id].present?
+      condition[:products]={:id=>params[:product_id]}
+    end
+
+    @account_count = Account.joins(:accounts_products).joins(:products).where(condition).group('accounts.id').count.count
+    @accounts = Account.joins(:accounts_products).joins(:products).where(condition).page(params[:page]).per(params[:per_page]).group('accounts.id').order('id desc');
   end
 
   # GET /Accounts/1

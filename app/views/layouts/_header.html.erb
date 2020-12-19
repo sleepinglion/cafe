@@ -91,17 +91,17 @@
         <% end %>
         <li class="nav-item<% if ['users'].include?(params[:controller]) %> active<% end %>">
           <%= link_to '#', :class => "nav-link dropdown-toggle", :'data-toggle' => "dropdown", :role => "button", :'aria-haspopup' => "true", :'aria-expanded' => "false" do %>
-            <i class="material-icons">local_cafe</i><span><%= t(:user, scope: [:activerecord, :models]) %></span>
+            <i class="material-icons">group</i><span><%= t(:user, scope: [:activerecord, :models]) %></span>
           <% end %>
           <ul class="dropdown-menu">
             <li<% if params[:controller]=='users' %> class="active"<% end %>>
               <%= link_to users_path, :class => "nav-link" do %>
-                <i class="material-icons">user</i><span><%= t(:user, scope: [:activerecord, :models]) %></span>
+                <i class="material-icons">group</i><span><%= t(:user, scope: [:activerecord, :models]) %></span>
               <% end %>
             </li>
             <li<% if params[:controller]=='admins' %> class="active"<% end %>>
               <%= link_to operators_path, :class => "nav-link" do %>
-                <i class="material-icons">user</i><span><%= t(:operator, scope: [:activerecord, :models]) %></span>
+                <i class="material-icons">group</i><span><%= t(:operator, scope: [:activerecord, :models]) %></span>
               <% end %>
             </li>
           </ul>

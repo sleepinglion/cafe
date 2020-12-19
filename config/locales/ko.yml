@@ -55,6 +55,7 @@ ko:
   new_user: '회원가입'
   delete_user: '회원탈퇴'
 
+  all : '전체'
   today : '오늘'
   week : '일주일'
   year : '일년'
@@ -70,6 +71,7 @@ ko:
   there_are_n_product_categories : "상품분류 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_points : "포인트가 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_users : "사용자가 <strong class=\"mark\">%{count}명</strong> 있습니다"
+  there_are_n_operators : "관리자가 <strong class=\"mark\">%{count}명</strong> 있습니다"
 
   success_title : '처리되었습니다'
   error_title : '죄송합니다'
@@ -338,9 +340,8 @@ ko:
       order: '주문'
       user: '회원'
       account: '정산'
-      account_product: '상품별-매출'
-      account_product_category: '상품분류별-매출'
       point : '포인트'
+      operator : '관리자'
     attributes :
       company :
         title : '회사명'
@@ -354,6 +355,14 @@ ko:
         password_confirmation : '비밀번호확인'
       admin_picture :
         picture : '사진'
+      operator :
+        login_id : '아이디'
+        name : ' 별명'
+        email : 'E-Mail'
+        password : '비밀번호'
+        password_confirmation : '비밀번호 확인'
+        sign_in_count : '로그인수'
+        enable : '사용여부'
       account :
         account_category_id : '거래내용'
         user_id : '사용자'

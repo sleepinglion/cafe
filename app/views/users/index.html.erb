@@ -42,8 +42,8 @@
                   <input type="checkbox" class="form-check-input js-switch" id="user_display<%=index %>" value="<%=user.id %>" <% if user.display %> checked<% end %>>
                 </div>
               </td>
-              <td><%= user.name %></td>
-              <td class="text-right"><%= user.phone %></td>
+              <td><%= link_to user.name,user_path(user) %></td>
+              <td class="text-right"><%=  link_to user.phone,user_path(user) %></td>
               <td class="text-right">
                 <% if user.birthday.present? %>
                   <%= I18n.l user.birthday.to_date, :format => :long %>

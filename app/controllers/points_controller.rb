@@ -30,10 +30,21 @@ class PointsController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @point = Point.new(point_params)
+    @point = Point.find_by_user_id(params[:point]['user_id'])
+
+    if @point.present?
+      result=@point.update(:point=>@point.point+params[:point][:point].to_i)
+    else
+      @point = Point.new(point_params)
+      result=@point.save
+    end
+
+    @point_logs = PointLog.create!(point_id: @point.id, charge: params[:point][:point])
+
+    account = Account.create!(account_category_id: 3, branch_id: current_admin.branch_id, user_id: @point.user_id)
 
     respond_to do |format|
-      if @point.save
+      if result
         format.html { redirect_to @point, notice: 'Gg was successfully created.' }
         format.json { render :show, status: :created, location: @point }
       else

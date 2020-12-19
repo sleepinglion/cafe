@@ -55,6 +55,7 @@ zh-CN:
   new_user: '注册会员'
   delete_user: '注销会员'
 
+  all : 'all'
   today : '今天'
   week : '一星期'
   year : '一年'
@@ -70,6 +71,7 @@ zh-CN:
   there_are_n_product_categories : "상품분류 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_points : "포인트가 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_users : "사용자가 <strong class=\"mark\">%{count}명</strong> 있습니다"
+  there_are_n_operators : "관리자가 <strong class=\"mark\">%{count}명</strong> 있습니다"
 
   success_title : '처리되었습니다'
   error_title : '죄송합니다'
@@ -386,13 +388,14 @@ zh-CN:
       <<: *errors
   activerecord:
     models:
-      product_category: '상품분류'
-      product: '상품'
-      order: '주문'
-      user: '회원'
+      product_category: '产品分类'
+      product : '产品'
+      product_picture : '产品图片'
+      order: '订购'
+      user: '会员'
       account: '정산'
-      account_product: '상품별-매출'
-      account_product_category: '상품분류별-매출'
+      point : '포인트'
+      operator : '관리자'
     attributes :
       company :
         title : '公司名'
@@ -406,6 +409,14 @@ zh-CN:
         password_confirmation : ' 密码确认'
       admin_picture :
         picture : '图片'
+      operator :
+        login_id : '登录账户'
+        nickname : ' 用户名'
+        email : '电子邮件'
+        password : '密码'
+        password_confirmation : '密码确认'
+        sign_in_count : '登录个数'
+        enable : '使用与否'
       account :
         account_category_id : '거래내용'
         user_id : '사용자'
@@ -416,15 +427,15 @@ zh-CN:
         updated_at : '수정일시'
         created_at : '생성일시'
       product_category :
-        title : '분류명'
+        title : '标题'
         order_no : '순서'
         products_count : '해당상품수'
         display : '표시'
         updated_at : '수정일시'
         created_at : '생성일시'
       product :
-        product_category_id: '상품분류'
-        title : '상품명'
+        product_category_id: '产品分类'
+        title : '标题'
         price : '가격'
         order_no : '순서'
         display : '표시'
@@ -433,13 +444,13 @@ zh-CN:
       product_picture :
         picture : '图片'
       point :
-        user_id : '사용자'
+        user_id : '会员'
         point : '포인트'
         point_logs_count : '기록'
         updated_at : '수정일시'
         created_at : '생성일시'
       order :
-        user_id : '사용자'
+        user_id : '会员'
         original_price : '원가'
         discount : '할인'
         price : '판매가'
@@ -448,7 +459,7 @@ zh-CN:
         updated_at : '수정일시'
         created_at : '생성일시'
       user :
-        name : '이름'
+        name : '用户名'
         phone : '전화번호'
         email : 'E-mail'
         birthday : '생일'

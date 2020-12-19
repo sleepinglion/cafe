@@ -55,6 +55,7 @@ en:
   new_user: 'New user'
   delete_user: 'Cancel membership'
 
+  all : 'all'
   today : 'today'
   week : 'week'
   year : 'year'
@@ -70,6 +71,7 @@ en:
   there_are_n_product_categories : "상품분류 내역이 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_points : "포인트가 <strong class=\"mark\">%{count}개</strong> 있습니다"
   there_are_n_users : "사용자가 <strong class=\"mark\">%{count}명</strong> 있습니다"
+  there_are_n_operators : "관리자가 <strong class=\"mark\">%{count}명</strong> 있습니다"
 
   success_title : '처리되었습니다'
   error_title : '죄송합니다'
@@ -404,6 +406,8 @@ en:
       order: 'order'
       user: 'user'
       account: 'account'
+      point : 'point'
+      operator : 'operator'
     attributes :
       company :
         title : 'company'
@@ -417,6 +421,14 @@ en:
         password_confirmation : 'password confirmation'
       admin_picture :
         picture : 'picture'
+      operator :
+        login_id : 'login ID'
+        nickname : ' nickname'
+        email : 'E-Mail'
+        password : 'password'
+        password_confirmation : 'password confirmation'
+        sign_in_count : 'sign in count'
+        enable : 'enable'
       account :
         account_category_id : 'account category'
         user_id : 'user'
