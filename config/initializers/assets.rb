@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file.
 
 # Version of your assets, change this if you want to expire all your assets.
-Rails.application.config.assets.version = '1.0'
+Rails.application.config.assets.version = '1.1'
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
@@ -20,7 +20,7 @@ scss = Dir["#{style_prefix}**/*.scss"].map { |x| x.gsub(style_prefix, '') }
 Rails.application.config.assets.precompile = (javascripts + css + scss + image)
 Rails.application.config.assets.precompile += %w( login.scss )
 Rails.application.config.assets.precompile << Proc.new { |path|
-  if path =~ /\.(eot|svg|ttf|woff)\z/
+  if path =~ /\.(eot|svg|ttf|woff|woff2)\z/
     true
   end
 }

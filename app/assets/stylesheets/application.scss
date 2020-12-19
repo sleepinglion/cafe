@@ -20,16 +20,15 @@
 
 @font-face {
     font-family: 'Nanum Gothic';
-    src: local('☺'),url('NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),url('NanumGothic-Regular.woff') format('woff');
+    src: local('☺'),url(asset-path('NanumGothic-Regular.eot?#iefix')) format('embedded-opentype'),url(asset-path('NanumGothic-Regular.woff')) format('woff');
 }
 
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src:  url('material-icon.woff2') format('woff2');
+    src:  url(asset-path('material-icon.woff2')) format('woff2');
 }
-
 
 .material-icons {
     font-family: 'Material Icons';
