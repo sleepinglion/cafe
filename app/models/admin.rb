@@ -1,19 +1,21 @@
 class Admin < ActiveRecord::Base
-    devise :database_authenticatable, :registerable, :trackable, :validatable, :timeoutable
-    validates_length_of :login_id, within: 4..40
-    validates_uniqueness_of :login_id
-    validates_length_of :name, within: 1..60, allow_blank: true
-    # mount_uploader :photo, AdminUploader
+  devise :database_authenticatable, :registerable, :trackable, :validatable, :timeoutable
+  translates :name
 
-    belongs_to :branch, counter_cache: true
-    # has_many :roles_admin
-    # has_many :role, through: :roles_admin
+  validates_length_of :email, within: 4..40
+  validates_uniqueness_of :email
+  validates_length_of :name, within: 1..60
+  validates_length_of :password, :within => 5..255
 
-    def timeout_in
-        1.day
-    end
+  belongs_to :branch, counter_cache: true
+  has_many :roles_admin
+  has_many :role, :through => :roles_admin
 
-    def email_required?
-        false
-    end
+  def role?(role)
+    return !!self.role.find_by_title(role)
+  end
+
+  def timeout_in
+    1.day
+  end
 end

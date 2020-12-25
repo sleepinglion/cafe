@@ -15,9 +15,9 @@ Branch.create!(id: 1, company_id: 1, title: '피씨방', enable: true)
 Branch.create!(id: 2, company_id: 2, title: '매점', enable: true)
 Branch.create!(id: 3, company_id: 3, title: '임시 매점', enable: true)
 
-Admin.create!(:id=>1,:branch_id=>1,:login_id=>'toughjjh',:email => 'admin@sleepinglion.pe.kr',:name=>'잠자는-사자',:password => '123456', :password_confirmation => '123456')
-Admin.create!(:id=>2,:branch_id=>2,:login_id=>'admin',:email => '',:name=>'매점 관리자',:password => '123456', :password_confirmation => '123456')
-Admin.create!(:id=>3,:branch_id=>3,:login_id=>'pp_admin',:email => '',:name=>'매점 관리자',:password => '123456', :password_confirmation => '123456')
+Admin.create!(:id=>1,:branch_id=>1,:email => 'admin@sleepinglion.pe.kr',:name=>'잠자는-사자',:password => '123456', :password_confirmation => '123456')
+#Admin.create!(:id=>2,:branch_id=>2,:email => '',:name=>'매점 관리자',:password => '123456', :password_confirmation => '123456')
+#Admin.create!(:id=>3,:branch_id=>3,:email => '',:name=>'매점 관리자',:password => '123456', :password_confirmation => '123456')
 
 AccountCategory.create!(id: 1, title: '구입', enable: true)
 AccountCategory.create!(id: 2, title: '수정', enable: true)
@@ -53,7 +53,6 @@ Product.create!(id: 14, branch_id: 2, product_category_id: 6, title: '단팥빵'
 Product.create!(id: 15, branch_id: 2, product_category_id: 6, title: '공갈빵', price: 2000, enable: true)
 Product.create!(id: 16, branch_id: 3, product_category_id: 7, title: '콜라', price: 2000, enable: true)
 Product.create!(id: 17, branch_id: 3, product_category_id: 8, title: '감자칩', price: 2000, enable: true)
-
 
 User.create!(id: 1, branch_id: 1, name: '사용자1', phone: '111-1111')
 User.create!(id: 2, branch_id: 1, name: '사용자2', phone: '222-2222')

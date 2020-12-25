@@ -1,4 +1,5 @@
 class Branch < ApplicationRecord
+  translates :title
   validates_presence_of :title
   belongs_to :company, counter_cache: true
   has_many :admins, dependent: :destroy

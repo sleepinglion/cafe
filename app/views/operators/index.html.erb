@@ -43,12 +43,12 @@
                 <td class="text-right">
                   <% if can? :update, operator %>
                     <%= link_to edit_operator_path(operator), :class => "btn btn-secondary" do %>
-                      <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
+                      <i class="glyphicon glyphicon-pencil"></i> <%= t(:edit) %>
                     <% end %>
                   <% end %>
                   <% if can? :delete, operator %>
                     <%= link_to operator_path(operator), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) }, :class => "btn btn-danger" do %>
-                      <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
+                      <i class="glyphicon glyphicon-trash"></i> <%= t(:delete) %>
                     <% end %>
                   <% end %>
                 </td>

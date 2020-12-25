@@ -60,12 +60,12 @@
                 <td class="text-right">
                   <% if can? :update, product %>
                     <%= link_to edit_product_path(product), :class => "btn btn-secondary" do %>
-                      <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
+                      <i class="glyphicon glyphicon-pencil"></i> <%= t(:edit) %>
                     <% end %>
                   <% end %>
                   <% if can? :delete, product %>
                     <%= link_to product_path(product), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) }, :class => "btn btn-danger" do %>
-                      <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
+                      <i class="glyphicon glyphicon-trash"></i> <%= t(:delete) %>
                     <% end %>
                   <% end %>
                 </td>

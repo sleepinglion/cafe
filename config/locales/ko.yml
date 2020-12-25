@@ -44,10 +44,13 @@ ko:
   no_exists_order : "주문이 없습니다"
 
   add : "신규"
+  edit: "수정"
+  delete: "삭제"
+  manage : '관리'
 
-  login_id :  "아이디"
+  email  :  "이메일"
   password : "비밀번호"
-  login_p_id : "아이디를 써주세요"
+  login_p_email : "이메일을 써주세요"
   login_p_password : "비밀번호를 써주세요"
   login : "로그인"
   logout : "로그아웃"
@@ -82,8 +85,6 @@ ko:
   link_list: '목록으로'
   link_new: '새로작성'
   link_show: '상세보기'
-  link_edit: '수정'
-  link_delete: '삭제'
 
   devise:
     confirmations:
@@ -363,6 +364,8 @@ ko:
         password_confirmation : '비밀번호 확인'
         sign_in_count : '로그인수'
         enable : '사용여부'
+        updated_at: '수정일시'
+        created_at: '생성일시'
       account :
         account_category_id : '거래내용'
         user_id : '사용자'

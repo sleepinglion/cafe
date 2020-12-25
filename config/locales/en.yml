@@ -6,49 +6,51 @@ en:
   chineses: '汉语'
   english: 'english'
 
-  search : "검색"
-  submit : "제출"
+  search : "search"
+  submit : "submit"
 
-  search_order : "주문내역"
-  search_user : "사용자검색"
-  select_user : "사용자선택"
-  access_card : "출입카드"
-  name : "이름"
-  phone : "전화번호"
-  payment_n_total : "결제방법, 합계"
-  manage : "관리"
-  image : "이미지"
-  check : "선택"
-  transaction_date : '거래일'
-  display : '표시함'
-  no_display : '표시안함'
+  search_order : "search order"
+  search_user : "search user"
+  select_user : "select user"
+  access_card : "access card"
+  name : "name"
+  phone : "phone"
+  payment_n_total : "payment, total"
+  manage : "manage"
+  image : "image"
+  check : "check"
+  transaction_date : 'transaction date'
+  display : 'display'
+  no_display : 'no display'
 
-  add_order : "주문추가"
-  order : "주문"
-  product : "상품"
-  price : "가격"
-  quantity : "수량"
-  cancel : "취소"
-  cash : "현금"
-  credit : "신용카드"
-  point : "포인트"
-  total_price : "합계"
-  currency : "원"
-  address : "주소"
-  jedearoweb : '제대로웹'
-  payment_method : '결제방법'
-  total : '합계'
-  amount : '합계액'
+  add_order : "add order"
+  order : "order"
+  product : "product"
+  price : "price"
+  quantity : "quantity"
+  cancel : "cancel"
+  cash : "cash"
+  credit : "credit"
+  point : "point"
+  total_price : "total price"
+  address : "address"
+  jedearoweb : 'jedearoweb'
+  payment_method : 'payment method'
+  total : 'total'
+  amount : 'amount'
 
   login_first : "먼저 로그인 해주세요"
-  no_exists_order : "주문이 없습니다"
+  no_exists_order : "no exists order"
 
-  add : "신규"
+  add : "add"
+  edit : "edit"
+  delete : "delete"
+  manage : 'manage'
 
-  login_id :  "login ID"
+  email :  "email"
   password : "password"
-  login_p_id : "아이디를 써주세요"
-  login_p_password : "비밀번호를 써주세요"
+  login_p_email : "insert email, please"
+  login_p_password : "insert password, please"
   login : "login"
   logout : "logout"
   remember_me : "remember me"
@@ -79,11 +81,9 @@ en:
   delete_confirm: '정말로삭제합니까?'
   delete_cascade_confirm: "중대 경고!!\n이 항목을 삭제할 경우 이 항목뿐아니라 이 항목의 정보를 포함하는 모든 데이터가 삭제됩니다.\n그래도 진행하시겠습니까?"
 
-  link_list: '목록으로'
-  link_new: '새로작성'
-  link_show: '상세보기'
-  link_edit: '수정'
-  link_delete: '삭제'
+  link_list: 'go list'
+  link_new: 'new'
+  link_show: 'show detail'
 
   devise:
     confirmations:
@@ -429,6 +429,8 @@ en:
         password_confirmation : 'password confirmation'
         sign_in_count : 'sign in count'
         enable : 'enable'
+        updated_at: 'updated at'
+        created_at: 'created at'
       account :
         account_category_id : 'account category'
         user_id : 'user'
@@ -472,7 +474,7 @@ en:
         created_at : 'created at'
       user :
         name : 'name'
-        phone : 'phone :'
+        phone : 'phone'
         email : 'E-mail'
         birthday : 'birthday'
         address : 'address'

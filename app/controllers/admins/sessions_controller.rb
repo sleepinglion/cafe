@@ -6,6 +6,10 @@ class Admins::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(_resource_or_scope)
-    new_admin_session_path
+    if Rails.application.config.i18n.default_locale==I18n.locale
+      new_admin_session_path()
+    else
+      new_admin_session_path(:locale=>I18n.locale)
+    end
   end
 end

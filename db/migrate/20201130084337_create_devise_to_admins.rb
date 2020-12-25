@@ -4,9 +4,8 @@ class CreateDeviseToAdmins < ActiveRecord::Migration[6.0]
       t.references :branch,:null=>false
 
       ## Database authenticatable
-      t.string :login_id, null: false, limit: 60
-      t.string :email, limit: 100
-      t.string :name, limit: 100
+      t.string :email, null: false, limit: 100
+      t.string :name, null: false, limit: 100
       t.string :encrypted_password, null: false, limit: 60
       t.string :photo, limit: 150
 
