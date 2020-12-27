@@ -1,4 +1,4 @@
-class AccountCategories < ActiveRecord::Migration[6.0]
+class CreateAccountCategories < ActiveRecord::Migration[6.0]
   def change
     create_table :account_categories do |t|
       t.string :title,:null=>false

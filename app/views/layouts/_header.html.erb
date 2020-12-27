@@ -62,7 +62,7 @@
             </li>
           </ul>
         </li>
-        <% if @branch.use_point.present? %>
+        <% if @branch.present? %>
           <li class="nav-item
             <% if ['accounts', 'accounts_products', 'accounts_product_categories'].include?(params[:controller]) %> active<% end %>">
             <%= link_to '#', :class => "nav-link dropdown-toggle", :'data-toggle' => "dropdown", :role => "button", :'aria-haspopup' => "true", :'aria-expanded' => "false" do %>

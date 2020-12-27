@@ -1,4 +1,4 @@
-class ProductCategories < ActiveRecord::Migration[6.0]
+class CreateProductCategories < ActiveRecord::Migration[6.0]
   def change
     create_table :product_categories do |t|
       t.references :branch,:null=>false

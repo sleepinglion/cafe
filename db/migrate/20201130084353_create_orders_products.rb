@@ -1,4 +1,4 @@
-class OrdersProducts < ActiveRecord::Migration[6.0]
+class CreateOrdersProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :orders_products do |t|
       t.references :order,:null=>false

@@ -1,4 +1,4 @@
-class Accounts < ActiveRecord::Migration[6.0]
+class CreateAccounts < ActiveRecord::Migration[6.0]
   def change
     create_table :accounts do |t|
       t.references :branch,:null=>false

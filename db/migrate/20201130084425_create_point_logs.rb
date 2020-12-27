@@ -1,4 +1,4 @@
-class PointLogs < ActiveRecord::Migration[6.0]
+class CreatePointLogs < ActiveRecord::Migration[6.0]
   def change
     create_table :point_logs do |t|
       t.references :point,:null=>false
