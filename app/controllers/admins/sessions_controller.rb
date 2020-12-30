@@ -1,6 +1,13 @@
 class Admins::SessionsController < Devise::SessionsController
   layout 'admin/application'
 
+  def create
+    super
+
+    require 'ipaddr'
+    AdminLoginLog.create!(admin_id: current_admin.id,client_ip: IPAddr.new("192.168.0.1").to_i)
+  end
+
   def after_sign_in_path_for(_resource)
     session['user_return_to'] || root_path
   end

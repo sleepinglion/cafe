@@ -259,10 +259,6 @@ function order_display() {
         $(this).find('td.price .price_t').text(Number(price).toLocaleString());
     });
 
-    if($("#o_user_id").val()!='') {
-        $('#order_form input[type="submit"]').removeAttr('disabled');
-    }
-
     save_storage();
     calc_total_price();
 }
@@ -339,7 +335,6 @@ function save_storage() {
 $(document).ready(function(){
     var p_index=0;
     var no_exists_order_t=$('#no_data_t').val();
-    $('#order_form input[type="submit"]').attr('disabled','disabled');
     $('#order_form .delete').click(delete_order);
     $('#order_form .plus').click(plus_click);
     $('#order_form .minus').click(minus_click);
@@ -366,7 +361,6 @@ $(document).ready(function(){
             calc_total_price();
             save_storage();
         } else {
-            $('#order_form input[type="submit"]').attr('disabled','disabled');
             var no_eo_tr=$('<tr><td colspan="4" class="no_data">'+no_exists_order_t+'</td></tr>');
             $('#order_form tbody').append(no_eo_tr);
             localStorage.removeItem('orders');
@@ -408,10 +402,6 @@ $(document).ready(function(){
             $("#order_form tbody").append(tr);
             tr.effect('highlight',1000);
             p_index++;
-
-            if($("#order_user_id").val()!='') {
-                $('#order_form input[type="submit"]').removeAttr('disabled');
-            }
         });
 
         calc_total_price();
@@ -496,10 +486,6 @@ $(document).ready(function(){
             $("#order_form tbody").append(tr);
             tr.effect('highlight',1000);
             p_index++;
-
-            if($("#order_user_id").val()!='') {
-                $('#order_form input[type="submit"]').removeAttr('disabled');
-            }
         }
 
         calc_total_price();
@@ -530,7 +516,6 @@ $(document).ready(function(){
         $("#user_info").hide();
         $("#user_search").show();
         $("#order_user_id").val('');
-        $('#order_form input[type="submit"]').attr('disabled','disabled');
 
         if($(this).closest('.card').hasClass('border-warning')) {
             $(this).closest('.card').removeClass('border-warning');
@@ -613,7 +598,6 @@ $(document).ready(function(){
                         $("#user_select_list_layer").show();
                         $("#user_select_list tbody").empty();
                         $("#user_select_list tbody").append('<tr><td colspan="4" style="text-align:center">해당 데이터가 없습니다.</td></tr>');
-                        $('#order_form input[type="submit"]').attr('disabled','disabled');
                     }
                     $(".sl_pagination").removeData("load").empty();
                     initPagination(data.total,10,current_page);
@@ -644,13 +628,11 @@ $(document).ready(function(){
             $(".non-anon").hide();
             $("#p_type2").click();
             $("#p_type1").attr('disabled','disabled');
-            $('#order_form input[type="submit"]').removeAttr('disabled');
         } else {
             $("#order_user_id").val('');
             $(".non-anon").show();
             $("#user_select_list_layer").hide();
             $("#p_type1").removeAttr('disabled');
-            $('#order_form input[type="submit"]').attr('disabled','disabled');
         }
     });
 });
@@ -681,8 +663,6 @@ $(document).ready(function(){
     $('.input-daterange input').each(function() {
         $(this).datepicker({language: "ko",todayHighlight: true, maxViewMode : 'decades'});
     });
-
-
 
     $('.js-switch').bootstrapSwitch(
         {

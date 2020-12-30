@@ -8,8 +8,11 @@ class Admin < ActiveRecord::Base
   validates_length_of :password, :within => 5..255
 
   belongs_to :branch, counter_cache: true
+  has_one :admin_picture, dependent: :destroy
   has_many :roles_admin
   has_many :role, :through => :roles_admin
+  has_many :admin_login_log, :dependent=>:destroy
+  accepts_nested_attributes_for :admin_picture, :allow_destroy => true
 
   def role?(role)
     return !!self.role.find_by_title(role)

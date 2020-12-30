@@ -42,10 +42,14 @@
           <td><%=account.user.name %></td>
           <td><%=account.account_category.title %></td>
           <td class="text-right">
-            <%=number_to_currency (account.cash+account.credit+account.point) %>
+            <%=number_to_currency (account.account) %>
           </td>
           <td class="text-right">
-            <%=display_payment_method([account]) %>
+            <% if account.payments.present? %>
+            <% account.payments.each do |p| %>
+            <%=p.title %>
+            <% end %>
+            <% end %>
           </td>
           <% if can?(:update, account) or can?(:delete, account) %>
             <td class="text-right">

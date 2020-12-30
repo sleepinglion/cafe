@@ -66,6 +66,9 @@ class OrdersController < ApplicationController
     end
 
     @products = Product.where(condition).order('id desc').page(params[:page]).per(params[:per_page])
+
+    @payment_count = Payment.joins(:branches_payments).where({:branches_payments=>{ branch_id: current_admin.branch_id,enable: true}, enable: true}).count
+    @payments = Payment.joins(:branches_payments).where({:branches_payments=>{ branch_id: current_admin.branch_id,enable: true}, enable: true})
   end
 
   # GET /orders/1/edit
@@ -73,7 +76,7 @@ class OrdersController < ApplicationController
   end
 
   def calculate_account(s, payment_method)
-    a = { cash: 0, credit: 0, point: 0, total: 0 }
+    a = { total_price: 0 }
     if s.empty?
       return a
     end
@@ -81,15 +84,7 @@ class OrdersController < ApplicationController
     s.each do |ss|
       pp = ss.price * ss.quantity
 
-      a[:total]+=pp
-      case payment_method
-      when 'cash'
-        a[:cash]+=pp
-      when 'credit'
-        a[:credit]+=pp
-      when 'point'
-        a[:point]+=pp
-      end
+      a[:total_price]+=pp
     end
 
     return a
@@ -100,30 +95,30 @@ class OrdersController < ApplicationController
   def create
     result = false
 
-    #begin
+    begin
 
     @order = Order.new(order_params)
     @order.save!
 
     OrdersAdmin.create!(:order_id=>@order.id,:admin_id=>current_admin.id)
 
-    ca = calculate_account(@order.orders_products, params[:payment_method])
-    account = Account.create!(account_category_id: 1, branch_id: current_admin.branch_id, user_id: @order.user_id, cash: ca[:cash], credit: ca[:credit], point: ca[:point])
+    ca = calculate_account(@order.orders_products,params[:payment_method])
+    account = Account.create!(order_params.merge(:account_category_id=>1).except(:orders_products_attributes))
 
     @order.orders_products.each do |order_product|
       @accounts_product=AccountsProduct.create!(:account_id=>account.id, :product_id=>order_product.product_id)
     end
 
     @accounts_order = AccountsOrder.create!(:account_id => account.id, :order_id => @order.id)
-    @order.update(price: ca[:total], payment: ca[:total])
+    AccountsPayment.create!(:account_id => account.id, :payment_id=>params[:payment_method])
+
+    @order.update(total_price: ca[:total_price], total_payment: ca[:total_price])
+
+
 
     if @accounts_order.save
       result = true
     end
-
-    #rescue ActiveRecord::RecordInvalid => exception
-    #  self.new
-    #end
 
     respond_to do |format|
       if result
@@ -133,6 +128,11 @@ class OrdersController < ApplicationController
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
+    end
+
+    rescue ActiveRecord::RecordInvalid => exception
+      flash[:alert]=exception.message
+      redirect_to new_order_path
     end
   end
 

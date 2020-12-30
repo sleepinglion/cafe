@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users
   resources :points
   resources :operators
+  resources :branches
 
   devise_for :admins, :controllers => { :sessions => "admins/sessions",:registrations => "admins/registrations" }, :path_names =>  {:sign_up=>'new',:sign_in => 'login', :sign_out => 'logout'} do
     get 'edit', :to => 'admins::Registrations#edit'

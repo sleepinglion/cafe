@@ -52,7 +52,7 @@
               <td class="text-right"><%= product.order_no %></td>
               <td class="text-right">
                 <% if product.product_picture.present? %>
-                  <%=image_tag product.product_picture.photo.small_thumb.url %>
+                  <%=image_tag product.product_picture.picture.small_thumb.url %>
                 <% end %>
               </td>
               <td class="text-right"><%= I18n.l product.created_at.to_date, :format => :long %></td>

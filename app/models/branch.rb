@@ -9,4 +9,5 @@ class Branch < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :accounts, dependent: :destroy
+  has_many :branches_payments
 end

@@ -396,6 +396,7 @@ zh-CN:
       account: '帐户'
       point : '포인트'
       operator : '管理者'
+      branch : 'branch'
     attributes :
       company :
         title : '公司名'
@@ -407,11 +408,11 @@ zh-CN:
         email : '电子邮件'
         password : '密码'
         password_confirmation : ' 密码确认'
+        current_password : '现在密码'
       admin_picture :
         picture : '图片'
       operator :
-        login_id : '登录账户'
-        nickname : ' 用户名'
+        name : ' 用户名'
         email : '电子邮件'
         password : '密码'
         password_confirmation : '密码确认'

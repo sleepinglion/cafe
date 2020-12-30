@@ -408,22 +408,22 @@ en:
       account: 'account'
       point : 'point'
       operator : 'operator'
+      branch : 'branch'
     attributes :
       company :
         title : 'company'
       branch :
         title : 'branch'
       admin :
-        login_id : 'login id'
         name : 'name'
         email : 'email'
         password : 'password'
         password_confirmation : 'password confirmation'
+        password_confirmation : 'current password'
       admin_picture :
         picture : 'picture'
       operator :
-        login_id : 'login ID'
-        nickname : ' nickname'
+        name : ' name'
         email : 'E-Mail'
         password : 'password'
         password_confirmation : 'password confirmation'

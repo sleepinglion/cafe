@@ -7,17 +7,38 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Company.create!(id: 1, title: '피씨방', enable: true)
-Company.create!(id: 2, title: '매점', enable: true)
-Company.create!(id: 3, title: '임시 매점', enable: true)
+Company.create!(id: 1, title: '피씨방')
+Company.create!(id: 2, title: '매점')
+Company.create!(id: 3, title: '임시 매점')
 
-Branch.create!(id: 1, company_id: 1, title: '피씨방', enable: true)
-Branch.create!(id: 2, company_id: 2, title: '매점', enable: true)
-Branch.create!(id: 3, company_id: 3, title: '임시 매점', enable: true)
+Branch.create!(id: 1, company_id: 1, title: '피씨방', sample: true)
+Branch.create!(id: 2, company_id: 2, title: '매점')
+Branch.create!(id: 3, company_id: 3, title: '임시 매점')
 
 Admin.create!(:id=>1,:branch_id=>1,:email => 'admin@sleepinglion.pe.kr',:name=>'잠자는-사자',:password => '123456', :password_confirmation => '123456')
 #Admin.create!(:id=>2,:branch_id=>2,:email => '',:name=>'매점 관리자',:password => '123456', :password_confirmation => '123456')
 #Admin.create!(:id=>3,:branch_id=>3,:email => '',:name=>'매점 관리자',:password => '123456', :password_confirmation => '123456')
+
+Payment.create!(:id=>1,:title=>'현금결제')
+Payment.create!(:id=>2,:title=>'카드결제')
+Payment.create!(:id=>3,:title=>'포인트결제')
+Payment.create!(:id=>4,:title=>'추후청구')
+Payment.create!(:id=>5,:title=>'핸드폰결제')
+Payment.create!(:id=>6,:title=>'계좌이체')
+Payment.create!(:id=>7,:title=>'가상계좌')
+Payment.create!(:id=>8,:title=>'무통장입금')
+
+BranchesPayment.create!(branch_id: 1, payment_id: 1)
+BranchesPayment.create!(branch_id: 1, payment_id: 2)
+BranchesPayment.create!(branch_id: 1, payment_id: 3)
+BranchesPayment.create!(branch_id: 1, payment_id: 4)
+
+BranchesPayment.create!(branch_id: 2, payment_id: 1)
+BranchesPayment.create!(branch_id: 2, payment_id: 2)
+
+BranchesPayment.create!(branch_id: 3, payment_id: 3)
+BranchesPayment.create!(branch_id: 3, payment_id: 4)
+
 
 AccountCategory.create!(id: 1, title: '구입', enable: true)
 AccountCategory.create!(id: 2, title: '수정', enable: true)

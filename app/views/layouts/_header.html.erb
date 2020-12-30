@@ -5,7 +5,8 @@
         <h1 class="col-12"><%= link_to t(:service_name), root_path %></h1>
         <ul id="top-menu">
           <% if (current_admin) %>
-            <li><%= link_to edit_admin_registration_path do %><%= t(:welcome) %>
+            <li style="margin-right:30px">
+              <%= link_to edit_admin_registration_path do %><%= t(:welcome) %>
               <% end %></li>
             <li>
               <%= link_to destroy_admin_session_path, :id => "p_logout" do %>
@@ -27,17 +28,22 @@
     <nav id="main-menu" class="container">
       <ul class="nav">
         <li class="nav-item
-          <% if ['orders'].include?(params[:controller]) %> active<% end %>">
+          <% if ['orders'].include?(params[:controller]) %> active
+          <% end %>">
           <%= link_to '#', :class => "nav-link dropdown-toggle", :'data-toggle' => "dropdown", :role => "button", :'aria-haspopup' => "true", :'aria-expanded' => "false" do %>
             <i class="material-icons">payment</i><span><%= t(:order, scope: [:activerecord, :models]) %></span>
           <% end %>
           <ul class="dropdown-menu">
-            <li<% if params[:controller]=='orders' and params[:action]=='new' %> class="active"<% end %>>
+            <li
+            <% if params[:controller] == 'orders' and params[:action] == 'new' %> class="active"
+            <% end %>>
               <%= link_to new_order_path, :class => "nav-link" do %>
                 <i class="material-icons">local_cafe</i><span><%= t(:order, scope: [:activerecord, :models]) %></span>
               <% end %>
             </li>
-            <li<% if params[:controller]=='orders' and params[:action]=='index' %> class="active"<% end %>>
+            <li
+            <% if params[:controller] == 'orders' and params[:action] == 'index' %> class="active"
+            <% end %>>
               <%= link_to orders_path, :class => "nav-link" do %>
                 <i class="material-icons">local_cafe</i><span><%= t(:search_order) %></span>
               <% end %>
@@ -45,17 +51,22 @@
           </ul>
         </li>
         <li class="nav-item
-          <% if ['products', 'product_categories'].include?(params[:controller]) %> active<% end %>">
+          <% if ['products', 'product_categories'].include?(params[:controller]) %> active
+          <% end %>">
           <%= link_to '#', :class => "nav-link dropdown-toggle", :'data-toggle' => "dropdown", :role => "button", :'aria-haspopup' => "true", :'aria-expanded' => "false" do %>
             <i class="material-icons">local_cafe</i><span><%= t(:product, scope: [:activerecord, :models]) %></span>
           <% end %>
           <ul class="dropdown-menu">
-            <li<% if params[:controller]=='proudcts' %> class="active"<% end %>>
+            <li
+            <% if params[:controller] == 'proudcts' %> class="active"
+            <% end %>>
               <%= link_to products_path, :class => "nav-link" do %>
                 <i class="material-icons">local_cafe</i><span><%= t(:product, scope: [:activerecord, :models]) %></span>
               <% end %>
             </li>
-            <li<% if params[:controller]=='product_categories' %> class="active"<% end %>>
+            <li
+            <% if params[:controller] == 'product_categories' %> class="active"
+            <% end %>>
               <%= link_to product_categories_path, :class => "nav-link" do %>
                 <i class="material-icons">local_cafe</i><span><%= t(:product_category, scope: [:activerecord, :models]) %></span>
               <% end %>
@@ -64,17 +75,22 @@
         </li>
         <% if @branch.present? %>
           <li class="nav-item
-            <% if ['accounts', 'accounts_products', 'accounts_product_categories'].include?(params[:controller]) %> active<% end %>">
+            <% if ['accounts', 'accounts_products', 'accounts_product_categories'].include?(params[:controller]) %> active
+            <% end %>">
             <%= link_to '#', :class => "nav-link dropdown-toggle", :'data-toggle' => "dropdown", :role => "button", :'aria-haspopup' => "true", :'aria-expanded' => "false" do %>
               <i class="material-icons">attach_money</i><span><%= t(:account, scope: [:activerecord, :models]) %></span>
             <% end %>
             <ul class="dropdown-menu">
-              <li<% if params[:controller]=='accounts' %> class="active"<% end %>>
+              <li
+              <% if params[:controller] == 'accounts' %> class="active"
+              <% end %>>
                 <%= link_to accounts_path, :class => "nav-link" do %>
                   <i class="material-icons">attach_money</i><span><%= t(:account, scope: [:activerecord, :models]) %></span>
                 <% end %>
               </li>
-              <li<% if params[:controller]=='points' %> class="active"<% end %>>
+              <li
+              <% if params[:controller] == 'points' %> class="active"
+              <% end %>>
                 <%= link_to points_path, :class => "nav-link" do %>
                   <i class="material-icons">attach_money</i><span><%= t(:point, scope: [:activerecord, :models]) %></span>
                 <% end %>
@@ -83,25 +99,39 @@
           </li>
         <% else %>
           <li class="nav-item
-            <% if ['accounts', 'accounts_products', 'accounts_product_categories'].include?(params[:controller]) %> active<% end %>">
+            <% if ['accounts', 'accounts_products', 'accounts_product_categories'].include?(params[:controller]) %> active
+            <% end %>">
             <%= link_to accounts_path, :class => "nav-link" do %>
               <i class="material-icons">attach_money</i><span><%= t('activerecord.models.account') %></span>
             <% end %>
           </li>
         <% end %>
-        <li class="nav-item<% if ['users'].include?(params[:controller]) %> active<% end %>">
+        <li class="nav-item
+          <% if ['users'].include?(params[:controller]) %> active
+          <% end %>">
           <%= link_to '#', :class => "nav-link dropdown-toggle", :'data-toggle' => "dropdown", :role => "button", :'aria-haspopup' => "true", :'aria-expanded' => "false" do %>
             <i class="material-icons">group</i><span><%= t(:user, scope: [:activerecord, :models]) %></span>
           <% end %>
           <ul class="dropdown-menu">
-            <li<% if params[:controller]=='users' %> class="active"<% end %>>
+            <li
+            <% if params[:controller] == 'users' %> class="active"
+            <% end %>>
               <%= link_to users_path, :class => "nav-link" do %>
                 <i class="material-icons">group</i><span><%= t(:user, scope: [:activerecord, :models]) %></span>
               <% end %>
             </li>
-            <li<% if params[:controller]=='admins' %> class="active"<% end %>>
+            <li
+            <% if params[:controller] == 'admins' %> class="active"
+            <% end %>>
               <%= link_to operators_path, :class => "nav-link" do %>
                 <i class="material-icons">group</i><span><%= t(:operator, scope: [:activerecord, :models]) %></span>
+              <% end %>
+            </li>
+            <li
+              <% if params[:controller] == 'branches' %> class="active"
+              <% end %>>
+              <%= link_to branches_path, :class => "nav-link" do %>
+                <i class="material-icons">group</i><span><%= t(:branch, scope: [:activerecord, :models]) %></span>
               <% end %>
             </li>
           </ul>

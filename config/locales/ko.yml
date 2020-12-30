@@ -343,22 +343,22 @@ ko:
       account: '정산'
       point : '포인트'
       operator : '관리자'
+      branch : '지점'
     attributes :
       company :
         title : '회사명'
       branch :
         title : '지점명'
       admin :
-        login_id : '아이디'
         name : '이름'
         email : '이메일'
-        password : '비밀번호'
-        password_confirmation : '비밀번호확인'
+        password : '바꿀비밀번호'
+        password_confirmation : '바꿀비밀번호확인'
+        current_password : '현재비밀번호'
       admin_picture :
         picture : '사진'
       operator :
-        login_id : '아이디'
-        name : ' 별명'
+        name : ' 이름'
         email : 'E-Mail'
         password : '비밀번호'
         password_confirmation : '비밀번호 확인'
@@ -402,9 +402,9 @@ ko:
         user_id : '사용자'
         original_price : '원가'
         discount : '할인'
-        price : '판매가'
-        payment : '결제'
-        transaction_date : '거래일'
+        total_price : '판매가'
+        total_payment : '결재액'
+        last_transaction_date : '최종거래일'
         updated_at : '수정일시'
         created_at : '생성일시'
       user :
@@ -418,6 +418,10 @@ ko:
         created_at : '생성일시'
     errors:
       models :
+        order :
+          attributes :
+            user :
+              required : '사용자를 입력해주세요'
         user :
           attributes :
             login_id :

@@ -1,14 +1,4 @@
 class Admins::RegistrationsController < Devise::RegistrationsController
-  layout 'admin/application'
-  
-  def initialize(*params)
-    super(*params)
-    
-    @category=t(:menu_user)
-    @sub_menu=t(:submenu_admin)
-    @controller_name=t(:controller_admin)
-  end
-  
   # GET /admins
   # GET /admins.json
   def index
@@ -17,6 +7,19 @@ class Admins::RegistrationsController < Devise::RegistrationsController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @admins }
+    end
+  end
+
+  def new
+    @admin = Admin.new
+    @admin.build_admin_picture
+  end
+
+  def layout
+    if(['edit','update'].include?(params[:action]))
+      return 'application'
+    else
+      return 'admin/application'
     end
   end
   
@@ -42,6 +45,6 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   end
 
   def admin_params
-    params.require(:admin).permit(:login_id, :name, :email, :password, :salt, :encrypted_password)
+    params.require(:admin).permit( :name, :email, :password, :salt, :encrypted_password, admin_picture_attributes: [:picture])
   end
 end

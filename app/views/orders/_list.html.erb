@@ -26,8 +26,8 @@
         <th><%=t(:user_id,scope:[:activerecord,:attributes,:order]) %></th>
         <th><%=t(:payment_method) %></th>
         <th><%=t(:title,scope:[:activerecord,:attributes,:product]) %></th>
-        <th class="text-right"><%=t(:payment,scope:[:activerecord,:attributes,:order]) %></th>
-        <th class="text-right d-none d-sm-table-cell"><%=t(:transaction_date,scope:[:activerecord,:attributes,:order]) %></th>
+        <th class="text-right"><%=t(:total_payment,scope:[:activerecord,:attributes,:order]) %></th>
+        <th class="text-right d-none d-sm-table-cell"><%=t(:last_transaction_date,scope:[:activerecord,:attributes,:order]) %></th>
         <th class="text-right d-none d-sm-table-cell"><%=t(:created_at,scope:[:activerecord,:attributes,:order]) %></th>
         <% if can?(:update, Order) || can?(:delete, Order) %>
         <th class="text-center"><%=t(:manage) %></th>
@@ -39,27 +39,33 @@
         <% @orders.each do |order| %>
       <tr>
         <td><%=order.user.name %></td>
-        <td><%=display_payment_method(order.accounts) %></td>
+        <td>
+          <% order.accounts.each do |a| %>
+            <% a.payments.each do |p| %>
+            <%=p.title %>
+            <% end  %>
+          <% end  %>
+        </td>
         <td>
           <% order.orders_products.each do |op| %>
           <%=op.product.title %>
             <% end  %>
         </td>
         <td class="text-right"<% unless order.enable %> style="text-decoration:line-through"<% end %>>
-          <%=number_to_currency order.payment %>
+          <%=number_to_currency order.total_payment %>
         </td>
-        <td class="text-right d-none d-sm-table-cell"><%= I18n.l order.transaction_date.to_date, :format => :long %></td>
+        <td class="text-right d-none d-sm-table-cell"><%= I18n.l order.last_transaction_date.to_date, :format => :long %></td>
         <td class="text-right d-none d-sm-table-cell"><%= I18n.l order.created_at.to_datetime, :format => :short %></td>
         <% if can?(:update, order) or can?(:delete, order) %>
           <td class="text-right">
             <% if can? :update, order %>
               <%= link_to edit_order_path(order), :class => "btn btn-secondary" do %>
-                <i class="glyphicon glyphicon-pencil"></i> <%= t(:link_edit) %>
+                <i class="glyphicon glyphicon-pencil"></i> <%= t(:edit) %>
               <% end %>
             <% end %>
             <% if can? :delete, order %>
               <%= link_to order_path(order), :method => :delete, :data => { :confirm => t(:delete_confirm) }, :class => "btn btn-danger" do %>
-                <i class="glyphicon glyphicon-trash"></i> <%= t(:link_delete) %>
+                <i class="glyphicon glyphicon-trash"></i> <%= t(:delete) %>
               <% end %>
             <% end %>
           </td>

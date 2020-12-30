@@ -92,6 +92,6 @@ class ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:product_category_id, :title, :price, :display, product_picture_attributes: [:photo]).merge(branch_id: current_admin.branch_id)
+    params.require(:product).permit(:product_category_id, :title, :price, :display, product_picture_attributes: [:picture]).merge(branch_id: current_admin.branch_id)
   end
 end

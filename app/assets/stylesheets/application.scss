@@ -215,9 +215,9 @@ header nav a:active {color:red}
 .hidden-title {text-indent: -9999px}
 
 
-footer {position:relative;float:left;width:100%;height:3em;background: #f6f6f6}
+footer {display:none;position:relative;float:left;width:100%;height:3em;background: #f6f6f6}
 footer address {margin:0;padding:12px 0 0;line-height:150%;text-align:center}
-footer form {position:absolute;top:5px;right:10px}
+
 
 .section_bottom {text-align:center}
 
@@ -311,14 +311,13 @@ footer form {position:absolute;top:5px;right:10px}
 @media (min-width: 1500px) {
     .adsbygoogle {height: 140px}
     .container {width:1450px}
-
     .sub_main {margin-top:1.5em;margin-bottom:1.5em}
-    #counsels aside, #facilities aside {display:block}
-    #counsel_add .right_a,#counsel_edit .right_a,#facility_category_add .right_a,#facility_category_edit .right_a {display:block}
-    #exercise_category {margin-bottom:10px}
 
     aside #diet-submit-btn, aside #training-submit-btn {display:block;width:100%}
     aside.left-form,.add-page .list,.edit-page .list {display:block}
+
+    footer {display:block}
+    footer form {position:absolute;top:5px;right:10px}
 
     .visible-xl-block,
     .visible-xl-inline,

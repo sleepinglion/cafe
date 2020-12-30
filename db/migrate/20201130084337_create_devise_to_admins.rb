@@ -1,7 +1,8 @@
 class CreateDeviseToAdmins < ActiveRecord::Migration[6.0]
   def change
     create_table :admins do |t|
-      t.references :branch,:null=>false
+      t.references :branch, null: false
+      t.references :parent_id
 
       ## Database authenticatable
       t.string :email, null: false, limit: 100
@@ -19,11 +20,11 @@ class CreateDeviseToAdmins < ActiveRecord::Migration[6.0]
       # t.datetime :remember_created_at
 
       ## Trackable
-      t.integer  :sign_in_count, default: 0
+      t.integer :sign_in_count, default: 0
       t.datetime :current_sign_in_at
       t.datetime :last_sign_in_at
-      t.string   :current_sign_in_ip
-      t.string   :last_sign_in_ip
+      t.string :current_sign_in_ip
+      t.string :last_sign_in_ip
 
       ## Confirmable
       # t.string   :confirmation_token
@@ -43,7 +44,7 @@ class CreateDeviseToAdmins < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :admins, :login_id,             unique: true
+    add_index :admins, :email, unique: true
     # add_index :admins, :reset_password_token, :unique => true
     # add_index :admins, :confirmation_token,   :unique => true
     # add_index :admins, :unlock_token,         :unique => true
