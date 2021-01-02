@@ -17,7 +17,7 @@
           <col>
           <col style="width:195px">
           <col style="width:195px">
-          <% if can?(:update, Point) || can?(:delete, Point) %>
+          <% if can?(:update, Point) or can?(:delete, Point) %>
             <col<%=manage_width(Point) %>>
           <% end  %>
         </colgroup>
