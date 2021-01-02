@@ -4,8 +4,8 @@ class Admins::SessionsController < Devise::SessionsController
   def create
     super
 
-    require 'ipaddr'
-    AdminLoginLog.create!(admin_id: current_admin.id,client_ip: IPAddr.new(request.remote_ip).to_i)
+    #require 'ipaddr'
+    #AdminLoginLog.create!(admin_id: current_admin.id,client_ip: IPAddr.new(request.remote_ip).to_i)
   end
 
   def after_sign_in_path_for(_resource)
