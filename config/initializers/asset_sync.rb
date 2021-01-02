@@ -16,5 +16,12 @@ if defined?(AssetSync)
     config.manifest = true
 
     config.custom_headers = { '.*' => { cache_control: 'max-age=31536000', expires: 1.year.from_now.httpdate } }
+
+    config.add_local_file_paths do
+      # Add files to be uploaded
+      Dir.chdir(Rails.root.join('public')) do
+        Dir[File.join('packs', '**', '**')]
+      end
+    end
   end
 end
