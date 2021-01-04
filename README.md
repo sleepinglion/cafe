@@ -1,16 +1,16 @@
-# What is SL Survey
+# What is SL Cafe
 
-SL Survey is Simple Survey Application
+SL Cafe is Simple Order System(Like Cafe)
 
 This Application is composed of [Rails](http://rubyonrails.org/)(user-pages,admin-pages) + UI [Boostrap](http://getbootstrap.com)
 
 ## Server Requirements
 
-[Rails](http://rubyonrails.org/) version 6
+[Rails](http://rubyonrails.org/) version 6 or newer is recommended.
 
 
 ## DEMO
-[데모 페이지(Demo Page)](https://cafe.sleepinglion.pe.kr/admin)
+[데모 페이지(Demo Page)](https://cafe.sleepinglion.pe.kr)
 
 먼저 관리자 페이지로 admin@sleepinglioin.pe.kr : a12345로 로그인 한뒤
 회원 관리메뉴에서 회원을 생성하고(아이디:비밀번호등 설정)

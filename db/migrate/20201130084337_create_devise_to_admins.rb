@@ -8,8 +8,6 @@ class CreateDeviseToAdmins < ActiveRecord::Migration[6.0]
       t.string :email, null: false, limit: 100
       t.string :name, null: false, limit: 100
       t.string :encrypted_password, null: false, limit: 60
-      t.string :photo, limit: 150
-
       t.boolean :enable, null: false, default: true
 
       ## Recoverable

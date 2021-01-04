@@ -6,8 +6,13 @@
         <ul id="top-menu">
           <% if (current_admin) %>
             <li style="margin-right:30px">
+              <% if current_admin.admin_picture.present? %>
+              <%=image_tag(current_admin.admin_picture.picture.small_thumb.url,{:height=>50,:width=>50}) %>
+                <% else %>
               <%= link_to edit_admin_registration_path do %><%= t(:welcome) %>
-              <% end %></li>
+              <% end %>
+                <% end %>
+            </li>
             <li>
               <%= link_to destroy_admin_session_path, :id => "p_logout" do %>
                 <i class="material-icons" style="font-size:35px;vertical-align:middle">highlight_off</i><span><%= t(:logout) %></span>
