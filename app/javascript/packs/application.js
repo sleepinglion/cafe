@@ -12,4 +12,5 @@ require("jquery-ui")
 require("bootstrap");
 require("./jquery.pagination");
 require("./bootstrap-switch");
+require("./common");
 require("./index");
