@@ -43,7 +43,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
     respond_to do |format|
       if result
-        format.html { redirect_to new_admin_session_path, :notice => @controller_name +t(:message_success_insert)}
+        format.html { redirect_to new_admin_session_path, :notice => t(:message_success_insert)}
         format.json { render :json => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
