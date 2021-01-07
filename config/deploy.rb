@@ -19,6 +19,8 @@ set :deploy_to, '/home/deploy/cafe'
 
 # Default value for :pty is false
 set :pty, true
+set :rbenv_type, :user
+set :rbenv_ruby, "2.7.2"
 
 # Default value for :linked_files is []
 append :linked_files, "config/database.yml",".env"

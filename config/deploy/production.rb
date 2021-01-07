@@ -45,7 +45,7 @@ server "deploy_server", user: "deploy", roles: %w{app db web}
 #    keys: %w(/home/user_name/.ssh/id_rsa),
 #    forward_agent: false,
 #    auth_methods: %w(password)
-#  }
+#}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
