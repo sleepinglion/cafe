@@ -34,7 +34,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'kaminari'
 gem 'carrierwave'
-gem 'fog-azure-rm', '>=0.5.3'
+gem 'fog-azure-rm'
 gem 'mini_magick'
 gem 'sitemap_generator'
 gem 'meta-tags'
@@ -72,7 +72,7 @@ end
 
 group :production do
   gem 'asset_sync'
-  #gem 'fog-azure-rm','~> 2.8'
+  #gem 'fog-azure-rm'
   gem 'mysql2'
   gem 'redis'
   gem 'redis-store',github: 'redis-store/redis-store'
