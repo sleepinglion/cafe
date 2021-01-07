@@ -1,9 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-8 col-xl-6 login-box">
+      <h1><%=link_to t(:service_name),new_admin_session_path %></h1>
       <%= render :partial => 'layouts/ad' %>
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :post, :style => 'margin-top:10px' }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="row">
+        <%= render :partial => 'layouts/notice', :locals=>{:errors=>resource.errors, :notice=>notice,:alert=>alert} %>
+        </div>
         <div class="card">
           <div class="card-body">
             <div class="form-group">
@@ -33,6 +36,11 @@
               <div class="form-group">
                 <%= pp.label :picture %>
                 <%= pp.file_field :picture, :class => "form-control" %>
+              </div>
+            <% end %>
+            <% if Rails.env.production?	%>
+              <div class="form-group">
+                <%= recaptcha_tags  %>
               </div>
             <% end %>
           </div>

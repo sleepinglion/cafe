@@ -26,6 +26,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # POST /users
   # POST /users.json
   def create
+    begin
     @company = Company.create!(title: params[:title])
     @branch = Branch.create!(company_id: @company.id, title: '본점')
 
@@ -33,8 +34,15 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
     @admin = Admin.new(ap)
 
+    if Rails.env.production?
+      result=verify_recaptcha(:model => @admin) && @admin.save
+    else
+      result=@admin.save
+    end
+
+
     respond_to do |format|
-      if @admin.save
+      if result
         format.html { redirect_to new_admin_session_path, :notice => @controller_name +t(:message_success_insert)}
         format.json { render :json => @user, :status => :created, :location => @user }
       else
@@ -42,6 +50,11 @@ class Admins::RegistrationsController < Devise::RegistrationsController
         format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
+
+  rescue ActiveRecord::RecordInvalid => exception
+    flash[:alert]=exception.message
+    redirect_to new_admin_registration_path
+  end
   end
 
   def admin_params
