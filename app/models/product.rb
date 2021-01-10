@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  translates :title
   validates_presence_of :title
   belongs_to :branch
   belongs_to :product_category, counter_cache: true

@@ -5,6 +5,25 @@ GIT
     redis-store (1.9.0)
       redis (>= 4, < 5)
 
+GIT
+  remote: https://github.com/sleepinglion/fog-azure-rm.git
+  revision: d20da616d0724011db72573d922b26a06bbdf31d
+  specs:
+    fog-azure-rm (0.3.2)
+      azure-storage (>= 0.11.5.preview, < 1.0)
+      azure_mgmt_compute (~> 0.9.0)
+      azure_mgmt_dns (~> 0.9.0)
+      azure_mgmt_key_vault (~> 0.9.0)
+      azure_mgmt_network (~> 0.9.0)
+      azure_mgmt_resources (~> 0.9.0)
+      azure_mgmt_sql (~> 0.9.0)
+      azure_mgmt_storage (~> 0.9.0)
+      azure_mgmt_traffic_manager (~> 0.9.0)
+      fog-core (~> 1.43.0)
+      fog-json (~> 1.0)
+      rest-client (~> 2.0.0)
+      vhd (= 0.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -125,6 +144,9 @@ GEM
     capistrano-rails (1.6.1)
       capistrano (~> 3.1)
       capistrano-bundler (>= 1.1, < 3)
+    capistrano-rbenv (2.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     capybara (3.34.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -166,20 +188,6 @@ GEM
     faraday_middleware (0.14.0)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.14.2)
-    fog-azure-rm (0.3.2)
-      azure-storage (>= 0.11.5.preview, < 1.0)
-      azure_mgmt_compute (~> 0.9.0)
-      azure_mgmt_dns (~> 0.9.0)
-      azure_mgmt_key_vault (~> 0.9.0)
-      azure_mgmt_network (~> 0.9.0)
-      azure_mgmt_resources (~> 0.9.0)
-      azure_mgmt_sql (~> 0.9.0)
-      azure_mgmt_storage (~> 0.9.0)
-      azure_mgmt_traffic_manager (~> 0.9.0)
-      fog-core (~> 1.43.0)
-      fog-json (~> 1.0)
-      rest-client (~> 2.0.0)
-      vhd (= 0.0.4)
     fog-core (1.43.0)
       builder
       excon (~> 0.49)
@@ -425,12 +433,13 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-passenger
   capistrano-rails
+  capistrano-rbenv
   capybara (>= 2.15)
-  carrierwave
+  carrierwave (~> 2.0)
   devise
   dotenv-rails
   execjs
-  fog-azure-rm
+  fog-azure-rm!
   globalize
   gretel
   i18n-js

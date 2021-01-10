@@ -27,14 +27,12 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
 gem 'bootstrap', '~> 4.3.1'
 gem 'sprockets', '~> 3.7.2'
 gem 'devise'
 gem 'cancancan'
 gem 'kaminari'
-gem 'carrierwave'
-gem 'fog-azure-rm'
+gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'sitemap_generator'
 gem 'meta-tags'
@@ -57,6 +55,7 @@ group :development do
 
   # Capistrano
   gem 'capistrano'
+  gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
@@ -72,10 +71,10 @@ end
 
 group :production do
   gem 'asset_sync'
-  #gem 'fog-azure-rm'
+  gem 'fog-azure-rm', github: 'sleepinglion/fog-azure-rm'
   gem 'mysql2'
   gem 'redis'
-  gem 'redis-store',github: 'redis-store/redis-store'
+  gem 'redis-store', github: 'redis-store/redis-store'
   gem 'dotenv-rails'
   gem 'recaptcha', :require => 'recaptcha/rails'
   gem 'rails-letsencrypt'

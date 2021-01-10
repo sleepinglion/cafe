@@ -1,6 +1,6 @@
 class Admin < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :trackable, :validatable, :timeoutable
-  #translates :name
+  translates :name
 
   validates_length_of :email, within: 4..40
   validates_uniqueness_of :email

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'orders#new'
 
+  if Rails.env.production?
+    mount LetsEncrypt::Engine => '/.well-known'
+  end
+
   resources :accounts
   resources :accounts_products
   resources :accounts_product_categories

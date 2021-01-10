@@ -1,7 +1,7 @@
 CarrierWave.configure do |config|
   #if Rails.env.production?
-  require 'dotenv/load'
-   require 'fog/azurerm'
+    require 'dotenv/load'
+    require 'fog/azurerm'
     config.storage = :fog
     config.fog_credentials = {
       :provider => ENV['FOG_PROVIDER'], # required
@@ -17,4 +17,6 @@ CarrierWave.configure do |config|
   #else
   #  config.storage = :file
   #end
+
+  config.cache_dir = File.join(Rails.root, 'tmp', 'uploads', Rails.env)
 end
