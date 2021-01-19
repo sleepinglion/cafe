@@ -22,8 +22,8 @@
         </colgroup>
         <thead class="thead-default">
         <tr>
-          <th class="text-center"><%= t(:user_id,scope:[:activerecord,:attributes,:point]) %></th>
-          <th><%= t(:point,scope:[:activerecord,:attributes,:point]) %></th>
+          <th class="text-center"><%= t(:name,scope:[:activerecord,:attributes,:operator]) %></th>
+          <th><%= t(:point,scope:[:activerecord,:attributes,:operator]) %></th>
           <th class="text-right"><%= t(:point_logs_count,scope:[:activerecord,:attributes,:point]) %></th>
           <th class="text-right"><%= t(:updated_at,scope:[:activerecord,:attributes,:point]) %></th>
           <% if can?(:update, Point) || can?(:delete, Point) %>
@@ -35,9 +35,9 @@
         <% unless @operators.empty? %>
           <% @operators.each_with_index do |operator,index| %>
             <tr>
-              <td><%= operator.name %></td>
-              <td class="text-right"></td>
-              <td class="text-right"></td>
+              <td><%= operator.email %></td>
+              <td class="text-right"><%= operator.name %></td>
+              <td class="text-right"><%= operator.sign_in_count %></td>
               <td class="text-right"><%= I18n.l operator.created_at.to_date, :format => :long %></td>
               <% if can?(:update, operator) or can?(:delete, operator) %>
                 <td class="text-right">

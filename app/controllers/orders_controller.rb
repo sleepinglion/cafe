@@ -111,14 +111,8 @@ class OrdersController < ApplicationController
 
     @accounts_order = AccountsOrder.create!(:account_id => account.id, :order_id => @order.id)
     AccountsPayment.create!(:account_id => account.id, :payment_id=>params[:payment_method])
-
     @order.update(total_price: ca[:total_price], total_payment: ca[:total_price])
-
-
-
-    if @accounts_order.save
-      result = true
-    end
+    result = true
 
     respond_to do |format|
       if result

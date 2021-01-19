@@ -1,11 +1,11 @@
 class Operator < ActiveRecord::Base
     self.table_name = 'admins'
     attr_accessor :password, :password_confirmation
-    validates_length_of :login_id, within: 4..40
-    validates_uniqueness_of :login_id, :name, :email
+    validates_length_of :email, within: 4..40
+    validates_uniqueness_of  :email
     validates_confirmation_of :password
     validates_length_of :password, within: 4..40, allow_blank: true
-    #  translates :name
+    translates :name
 
     has_many :roles_admin, foreign_key: :admin_id
     has_many :role, through: :roles_admin

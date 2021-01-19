@@ -39,9 +39,10 @@
         <% unless @product_categories.empty? %>
           <% @product_categories.each_with_index do |product_category,index| %>
             <tr>
-              <td class="text-center">
-                <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input js-switch" id="product_category_display<%=index %>" value="<%=product_category.id %>"  <% if product_category.display %> checked<% end  %>>
+              <td>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="product_category_display<%=index %>" value="<%=product_category.id %>" <% if product_category.display %> checked<% end %>>
+                  <label class="custom-control-label" for="product_category_display<%=index %>"><% if product_category.display %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
                 </div>
               </td>
               <td><%= product_category.title %></td>

@@ -10,7 +10,10 @@
 require("jquery")
 require("jquery-ui")
 require("bootstrap");
+
+import I18n from 'i18n-js'
+window.I18n = I18n
+
 require("./jquery.pagination");
-require("./bootstrap-switch");
 require("./common");
 require("./index");

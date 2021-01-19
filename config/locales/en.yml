@@ -8,6 +8,8 @@ en:
 
   search : "search"
   submit : "submit"
+  choose_file: '파일선택'
+  browse: '찾기'
 
   search_order : "search order"
   search_user : "search user"
@@ -21,7 +23,7 @@ en:
   check : "check"
   transaction_date : 'transaction date'
   display : 'display'
-  no_display : 'no display'
+  hidden : 'hidden'
 
   add_order : "add order"
   order : "order"

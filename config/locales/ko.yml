@@ -8,6 +8,8 @@ ko:
 
   search : "검색"
   submit : "제출"
+  choose_file: '파일선택'
+  browse: '찾기'
 
   search_order : "주문내역"
   search_user : "사용자검색"
@@ -21,7 +23,7 @@ ko:
   check : "선택"
   transaction_date: '거래일'
   display: '표시함'
-  no_display: '표시안함'
+  hidden: '숨김'
 
   add_order : "주문추가"
   order : "주문"
@@ -336,6 +338,8 @@ ko:
       <<: *errors
   activerecord:
     models:
+      company : '회사(단체)'
+      branch : '지점'
       product_category: '상품분류'
       product: '상품'
       order: '주문'
@@ -343,17 +347,16 @@ ko:
       account: '정산'
       point : '포인트'
       operator : '관리자'
-      branch : '지점'
     attributes :
       company :
-        title : '회사명'
+        title : '회사(단체)명'
       branch :
         title : '지점명'
       admin :
         name : '이름'
         email : '이메일'
-        password : '바꿀비밀번호'
-        password_confirmation : '바꿀비밀번호확인'
+        password : '비밀번호'
+        password_confirmation : '비밀번호확인'
         current_password : '현재비밀번호'
       admin_picture :
         picture : '사진'

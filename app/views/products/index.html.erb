@@ -42,9 +42,10 @@
         <% unless @products.empty? %>
           <% @products.each_with_index do |product,index| %>
             <tr>
-              <td class="text-center">
-                <div class="form-group form-check">
-                  <input type="checkbox" class="form-check-input js-switch js-check-change" value="<%=product.id %>" id="product_display<%=index %>"<% if product.display %> checked<% end %>>
+              <td>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="product_display<%=index %>" value="<%=product.id %>" <% if product.display %> checked<% end %>>
+                  <label class="custom-control-label" for="product_display<%=index %>"><% if product.display %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
                 </div>
               </td>
               <td><%= product.title %></td>

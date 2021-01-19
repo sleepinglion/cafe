@@ -3,6 +3,7 @@ class Admin < ActiveRecord::Base
   translates :name
 
   validates_length_of :email, within: 4..40
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates_uniqueness_of :email
   validates_length_of :name, within: 1..60
   validates_length_of :password, :within => 5..255

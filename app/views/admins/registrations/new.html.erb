@@ -1,54 +1,80 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 col-lg-8 col-xl-6 login-box">
-      <h1><%=link_to t(:service_name),new_admin_session_path %></h1>
+    <section class="col-12 col-lg-8 col-xl-6 login-box">
+      <h1><%= link_to t(:service_name), new_admin_session_path %></h1>
       <%= render :partial => 'layouts/ad' %>
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :post, :style => 'margin-top:10px' }) do |f| %>
         <div class="row">
-        <%= render :partial => 'layouts/notice', :locals=>{:errors=>resource.errors, :notice=>notice,:alert=>alert} %>
+          <%= render :partial => 'layouts/notice', :locals => { :errors => resource.errors, :notice => notice, :alert => alert } %>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <div class="form-group">
-              <%= label_tag :title, t(:title, scope: [:activerecord, :attributes, :company]) %>
-              <%= text_field_tag :title, nil, { class: "form-control", autofocus: true } %>
+        <article>
+          <h2><%= t(:admin, scope: [:activerecord, :attributes, :model]) %></h2>
+          <div class="card">
+            <div class="card-body">
+              <article class="col-12">
+                <h3>로그인 정보</h3>
+                <div class="form-group">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, :class => "form-control" %>
+                </div>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+                <div class="form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, :class => "form-control", :autocomplete => "off" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, :class => "form-control" %>
+                </div>
+              </article>
+              <article class="col-12">
+                <h3>회원 정보</h3>
+                <div class="form-group">
+                  <%= f.label :name %>
+                  <%= f.text_field :name, :class => "form-control" %>
+                </div>
+                <%= f.fields_for :admin_picture do |pp| %>
+                  <div class="form-group">
+                    <%= pp.label :picture %>
+                    <div class="custom-file">
+                      <%= pp.file_field :picture, :class => "custom-file-input" %>
+                      <label class="custom-file-label" for="customFile" data-browse="<%=t(:browse) %>"><%=t(:choose_file) %></label>
+                    </div>
+                  </div>
+                <% end %>
+              </article>
             </div>
-            <div class="form-group">
-              <%= f.label :name %>
-              <%= f.text_field :name, :class => "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :email %>
-              <%= f.email_field :email, :class => "form-control" %>
-            </div>
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
-            <div class="form-group">
-              <%= f.label :password %>
-              <%= f.password_field :password, :class => "form-control", :autocomplete => "off" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation, :class => "form-control" %>
-            </div>
-            <%= f.fields_for :admin_picture do |pp| %>
-              <div class="form-group">
-                <%= pp.label :picture %>
-                <%= pp.file_field :picture, :class => "form-control" %>
-              </div>
-            <% end %>
-            <% if Rails.env.production?	%>
-              <div class="form-group">
-                <%= recaptcha_tags  %>
-              </div>
-            <% end %>
           </div>
-        </div>
+        </article>
+        <article>
+          <h2><%= t(:title, scope: [:activerecord, :attributes, :company]) %></h2>
+          <div class="card">
+            <div class="card-body">
+              <div class="form-group col-12">
+                <%= label_tag :title, t(:title, scope: [:activerecord, :attributes, :company]) %>
+                <%= text_field_tag :title, nil, { class: "form-control", autofocus: true } %>
+              </div>
+              <div class="form-group col-12">
+                <%= label_tag :picture %>
+                <div class="custom-file">
+                  <%= file_field_tag :picture, :class => "custom-file-input" %>
+                  <label class="custom-file-label" for="customFile" data-browse="<%=t(:browse) %>"><%=t(:choose_file) %></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <% if Rails.env.production? %>
+          <div class="form-group">
+            <%= recaptcha_tags %>
+          </div>
+        <% end %>
         <div class="form-actions">
-          <%= f.submit :class => "btn btn-lg btn-block btn-primary" %>
+          <%= f.submit :class => "btn btn-lg btn-block btn-primary",:'data-toggle'=>"tooltip",:'data-placement'=>"top",:title=>t(:membership) %>
         </div>
       <% end %>
-    </div>
-    </div>
+    </section>
   </div>
+</div>

@@ -8,6 +8,8 @@ zh-CN:
 
   search : "搜索"
   submit : "储存"
+  choose_file: '파일선택'
+  browse: '搜索'
 
   search_order : "주문내역"
   search_user : "사용자검색"
@@ -21,7 +23,7 @@ zh-CN:
   check : "선택"
   transaction_date : '交易日期'
   display : '표시함'
-  no_display : '표시안함'
+  hidden : '표시안함'
 
   add_order : "주문추가"
   order : "订单"

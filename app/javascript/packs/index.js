@@ -1,28 +1,4 @@
 
-
-function stripComma(str) {
-    var re = /,/g;
-    return str.replace(re, "");
-}
-
-function add_hyphen(v) {
-    if( !v ){
-        return v;
-    }
-
-    v = v.replace(/[^0-9]/g, '');
-    return v.replace(/^(0(?:2|[0-9]{2}))([0-9]+)([0-9]{4}$)/, "$1-$2-$3");
-}
-
-function pageselectCallback(page_index, jq) {
-    if ($(jq).data("load") == true)
-        getList(page_index, jq);
-    else
-        $(jq).data("load", true);
-
-    return false;
-}
-
 function display_gender(gender)
 {
     if(gender==null) {
@@ -34,25 +10,6 @@ function display_gender(gender)
     } else {
         return '여자';
     }
-}
-
-function initPagination(num_entries, items_per_page, current_page) {
-    if(!current_page) {
-        var current_page=0;
-    }
-
-    if(num_entries<=items_per_page) {
-        return false;
-    }
-
-    $(".sl_pagination").pagination(num_entries, {
-        current_page : current_page,
-        num_edge_entries : 2,
-        num_display_entries : 8,
-        callback : pageselectCallback,
-        items_per_page : items_per_page
-    });
-    return false;
 }
 
 function setDateInput(obj) {
@@ -82,58 +39,47 @@ function setDateInput(obj) {
     } else {alert("잠시 후 이용해 주시기 바랍니다."); return false;}
 }
 
-$(document).ready(function(){
-    $('#myModal').on('show.bs.modal', function (e) {
-        if (!data) return e.preventDefault(); // stops modal from being shown
+function stripComma(str) {
+    var re = /,/g;
+    return str.replace(re, "");
+}
 
-        if($(this).attr('title')) {
-            $('#myModal .modal-header h3').text($(this).attr('title'));
-        } else {
-            $('#myModal .modal-header h3').text('사용자정보');
-        }
-    });
+function add_hyphen(v) {
+    if( !v ){
+        return v;
+    }
 
-    $('.btn-maximize').click(function(){
-        $(this).parent().parent().parent().find('.box-content').slideDown();
-        $(this).find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+    v = v.replace(/[^0-9]/g, '');
+    return v.replace(/^(0(?:2|[0-9]{2}))([0-9]+)([0-9]{4}$)/, "$1-$2-$3");
+}
+
+function initPagination(num_entries, items_per_page, current_page) {
+    if(!current_page) {
+        var current_page=0;
+    }
+
+    if(num_entries<=items_per_page) {
         return false;
+    }
+
+    $(".sl_pagination").pagination(num_entries, {
+        current_page : current_page,
+        num_edge_entries : 2,
+        num_display_entries : 8,
+        callback : pageselectCallback,
+        items_per_page : items_per_page
     });
+    return false;
+}
 
-    $(".btn-close").click(function(){
-        $(this).parent().parent().parent().remove();
-        return false;
-    });
+function pageselectCallback(page_index, jq) {
+    if ($(jq).data("load") == true)
+        getList(page_index, jq);
+    else
+        $(jq).data("load", true);
 
-    $('.dropmenu').click(function(e){
-        if(!$(this).parent().find('ul:first').hasClass('d_show')) {
-            $(this).parent().parent().find('.d_show').removeClass('d_show').slideToggle();
-            $(this).parent().find('ul').addClass('d_show').slideToggle(function(){
-                $("#content").css("min-height",$('aside').height()+40);
-            });
-
-        }
-    });
-
-    $('.input-group .input-group-prepend').click(function(){
-        $(this).parent().find('input').trigger('focus');
-    });
-
-    $("#p_logout").click(function() {
-        localStorage.removeItem('orders');
-    });
-
-    $("#messages .alert-success").fadeOut(5000,function(){
-        var as=$(this);
-        $("#messages").slideUp('slow',function(){
-            as.remove();
-            $("#messages").slideDown();
-        });
-    });
-});
-
-
-
-
+    return false;
+}
 
 
 var current_page=0;
@@ -663,26 +609,4 @@ $(document).ready(function(){
     $('.input-daterange input').each(function() {
         $(this).datepicker({language: "ko",todayHighlight: true, maxViewMode : 'decades'});
     });
-
-    $('.js-switch').bootstrapSwitch(
-        {
-        'onSwitchChange': function(event, state){
-
-            if(window.location.port!=80) {
-                var port=':' + window.location.port;
-            } else {
-                var port='';
-            }
-
-            var param={_method: 'put', authenticity_token:$('meta[name="csrf-token"]').attr('content')}
-            var path=window.location.pathname.split('/')[1];
-            var url=window.location.protocol+'//'+window.location.hostname+port+'/'+path+'/'+$(this).val()+'.json';
-            var aa={products:'product',product_categories:'product_category',users:'user'}
-
-            param[aa[path]]={display:$(this).is(':checked')};
-
-            $.post(url,param,function(data){
-
-            },'json');
-    }});
 });

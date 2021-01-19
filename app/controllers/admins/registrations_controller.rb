@@ -30,6 +30,10 @@ class Admins::RegistrationsController < Devise::RegistrationsController
     @company = Company.create!(title: params[:title])
     @branch = Branch.create!(company_id: @company.id, title: '본점')
 
+    #if(params[:picture])
+    #  CompanyPicture.create!(company_id: @company.id,picture: )
+    #end
+
     ap=admin_params.merge(branch_id: @branch.id)
 
     @admin = Admin.new(ap)
