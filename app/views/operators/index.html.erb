@@ -26,7 +26,7 @@
           <th><%= t(:point,scope:[:activerecord,:attributes,:operator]) %></th>
           <th class="text-right"><%= t(:point_logs_count,scope:[:activerecord,:attributes,:point]) %></th>
           <th class="text-right"><%= t(:updated_at,scope:[:activerecord,:attributes,:point]) %></th>
-          <% if can?(:update, Point) || can?(:delete, Point) %>
+          <% if can?(:update, Operator) || can?(:delete, Operator) %>
             <th class="text-center"><%= t(:manage) %></th>
           <% end  %>
         </tr>

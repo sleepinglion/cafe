@@ -208,7 +208,7 @@ header nav a:active {color:red}
 }
 
 #main-menu .active>.nav-link {color:#fff}
-.dropdown-menu {background-color:#37474F}
+.dropdown-menu {margin-top:0;border-top:none;border-top-left-radius:0;border-top-right-radius: 0;background-color:#37474F}
 .hidden-title {text-indent: -9999px}
 
 

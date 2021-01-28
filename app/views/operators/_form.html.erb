@@ -1,10 +1,10 @@
-<%= form_with(model: point, local: true) do |form| %>
+<%= form_with(model: operator, local: true) do |form| %>
   <div class="card">
     <div class="card-body">
 
       <div class="form-group">
-        <%= form.label :point %>
-        <%= form.number_field :point, :class => "form-control", :required => "required" %>
+        <%= form.label :name %>
+        <%= form.text_field :name, :class => "form-control", :required => "required" %>
       </div>
     </div>
   </div>
