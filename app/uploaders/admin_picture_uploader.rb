@@ -8,8 +8,8 @@ class AdminPictureUploader < CarrierWave::Uploader::Base
         storage :fog
         # storage :file
     else
-        storage :fog
-        # storage :file
+        #storage :fog
+         storage :file
     end
 
     # Override the directory where uploaded files will be stored.
