@@ -3,7 +3,7 @@
     <div class="card-body">
       <div class="form-group">
         <%= form.label :product_category_id %>
-        <%= form.select :product_category_id,options_from_collection_for_select(ProductCategory.where(:branch_id=>current_admin.branch_id,:display=>true,:enable=>true).all, 'id', 'title',product.product_category_id),{},{:class=>"form-control"} %>
+        <%= form.select :product_category_id,options_from_collection_for_select(ProductCategory.where(:branch_id=>current_admin.branch_id,:enable=>true).order('order_no desc'), 'id', 'title',product.product_category_id),{},{:class=>"form-control"} %>
       </div>
       <div class="form-group">
         <%= form.label :title %>
@@ -13,10 +13,14 @@
         <%= form.label :price %>
         <%= form.number_field :price, :class => "form-control", :required => "required" %>
       </div>
+      <div class="form-group">
+        <%= form.label :order_no %>
+        <%= form.number_field :order_no, :class => "form-control" %>
+      </div>
       <%= form.fields_for :product_picture do |pp| %>
       <div class="form-group">
         <%= pp.label :picture %>
-        <%= pp.file_field :picture, :class => "form-control" %>
+        <%= pp.file_field :picture, :class => "form-control-file" %>
       </div>
       <% end %>
     </div>

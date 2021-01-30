@@ -7,7 +7,7 @@ class OperatorsController < ApplicationController
   def index
     params[:per_page] = 10 unless params[:per_page].present?
 
-    condition={branch_id: current_admin.branch_id ,enable: true}
+    condition={branch_id: current_admin.branch_id }
 
     @operator_count = Operator.where(condition).count
     @operators = Operator.where(condition).page(params[:page]).per(params[:per_page])

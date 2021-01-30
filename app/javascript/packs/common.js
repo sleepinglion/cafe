@@ -19,9 +19,9 @@ $(document).ready(function(){
         }
 
         if(c_checked) {
-            $(this).parent().find('.custom-control-label').text(I18n.t('display')).effect('highlight');
+            $(this).parent().find('.custom-control-label').text(I18n.t('display')).closest('tr').effect('highlight');
         } else {
-            $(this).parent().find('.custom-control-label').text(I18n.t('hidden')).effect('highlight');
+            $(this).parent().find('.custom-control-label').text(I18n.t('hidden')).closest('tr').effect('highlight');
         }
 
         var param={_method: 'put', authenticity_token:$('meta[name="csrf-token"]').attr('content')}
@@ -29,7 +29,7 @@ $(document).ready(function(){
         var url=window.location.protocol+'//'+window.location.hostname+port+'/'+path+'/'+$(this).val()+'.json';
         var aa={products:'product',product_categories:'product_category',users:'user'}
 
-        param[aa[path]]={display:c_checked};
+        param[aa[path]]={enable:c_checked};
         $.post(url,param,function(data){
 
         },'json');

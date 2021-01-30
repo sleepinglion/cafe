@@ -22,10 +22,10 @@
         </colgroup>
         <thead class="thead-default">
         <tr>
-          <th class="text-center"><%= t(:name,scope:[:activerecord,:attributes,:operator]) %></th>
-          <th><%= t(:point,scope:[:activerecord,:attributes,:operator]) %></th>
-          <th class="text-right"><%= t(:point_logs_count,scope:[:activerecord,:attributes,:point]) %></th>
-          <th class="text-right"><%= t(:updated_at,scope:[:activerecord,:attributes,:point]) %></th>
+          <th><%= t(:email,scope:[:activerecord,:attributes,:operator]) %></th>
+          <th><%= t(:name,scope:[:activerecord,:attributes,:operator]) %></th>
+          <th class="text-right"><%= t(:sign_in_count,scope:[:activerecord,:attributes,:operator]) %></th>
+          <th class="text-right"><%= t(:updated_at,scope:[:activerecord,:attributes,:operator]) %></th>
           <% if can?(:update, Operator) || can?(:delete, Operator) %>
             <th class="text-center"><%= t(:manage) %></th>
           <% end  %>
@@ -36,7 +36,7 @@
           <% @operators.each_with_index do |operator,index| %>
             <tr>
               <td><%= operator.email %></td>
-              <td class="text-right"><%= operator.name %></td>
+              <td><%= operator.name %></td>
               <td class="text-right"><%= operator.sign_in_count %></td>
               <td class="text-right"><%= I18n.l operator.created_at.to_date, :format => :long %></td>
               <% if can?(:update, operator) or can?(:delete, operator) %>
@@ -63,7 +63,7 @@
         </tbody>
       </table>
       <%= paginate @operators %>
-      <%= link_to t(:add), new_point_path, :class => "btn btn-primary" %>
+      <%= link_to t(:add), new_operator_path, :class => "btn btn-primary" %>
     </article>
   </div>
 </div>

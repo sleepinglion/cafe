@@ -24,7 +24,7 @@
         </colgroup>
         <thead class="thead-default">
         <tr>
-          <th class="text-center"><%= t(:display,scope:[:activerecord,:attributes,:product_category]) %></th>
+          <th class="text-center"><%= t(:enable,scope:[:activerecord,:attributes,:product_category]) %></th>
           <th><%= t(:title,scope:[:activerecord,:attributes,:product_category]) %></th>
           <th><%= t(:order_no,scope:[:activerecord,:attributes,:product_category]) %></th>
           <th class="text-right"><%= t(:price) %></th>
@@ -41,14 +41,20 @@
             <tr>
               <td>
                 <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="product_category_display<%=index %>" value="<%=product_category.id %>" <% if product_category.display %> checked<% end %>>
-                  <label class="custom-control-label" for="product_category_display<%=index %>"><% if product_category.display %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
+                  <input type="checkbox" class="custom-control-input" id="product_category_display<%=index %>" value="<%=product_category.id %>" <% if product_category.enable %> checked<% end %>>
+                  <label class="custom-control-label" for="product_category_display<%=index %>"><% if product_category.enable %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
                 </div>
               </td>
               <td><%= product_category.title %></td>
               <td><%= product_category.order_no %></td>
               <td class="text-right"><%= product_category.title %><%= t(:currency) %></td>
-              <td class="text-right"><%= product_category.products_count %></td>
+              <td class="text-right">
+                <% if product_category.products_count.zero? %>
+                  <%=t(:none) %>
+                <% else %>
+                <%= product_category.products_count %>
+                <% end  %>
+              </td>
               <td class="text-right"><%= I18n.l product_category.created_at.to_date, :format => :long %></td>
               <% if can?(:update, product_category) or can?(:delete, product_category) %>
                 <td class="text-right">

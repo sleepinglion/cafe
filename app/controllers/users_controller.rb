@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     params[:per_page] = 10 unless params[:per_page].present?
 
-    condition={branch_id: current_admin.branch_id, enable: true}
+    condition = { branch_id: current_admin.branch_id}
 
     @user_count = User.where(condition).count
     @users = User.where(condition).page(params[:page]).per(params[:per_page]).order('id desc')
@@ -68,6 +68,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
@@ -75,6 +76,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :phone, :birthday, :display).merge(branch_id: current_admin.branch_id)
+    params.require(:user).permit(:name, :phone, :birthday, :enable).merge(branch_id: current_admin.branch_id)
   end
 end

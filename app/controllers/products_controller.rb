@@ -7,20 +7,20 @@ class ProductsController < ApplicationController
   def index
     params[:per_page] = 10 unless params[:per_page].present?
 
-    condition={ branch_id: current_admin.branch_id, enable: true }
+    condition = { branch_id: current_admin.branch_id}
 
-    @product_categories= ProductCategory.where(condition)
+    @product_categories = ProductCategory.where(condition)
 
     if params[:product_category]
-      @product_category=ProductCategory.find(params[:product_category])
+      @product_category = ProductCategory.find(params[:product_category])
     else
       unless @product_categories.empty?
-        @product_category=@product_categories.first
+        @product_category = @product_categories.first
       end
     end
 
     if @product_category.present?
-      condition[:product_category_id]=@product_category.id
+      condition[:product_category_id] = @product_category.id
     end
 
     @product_count = Product.where(condition).count
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.build_product_picture
 
-    @product_categories = ProductCategory.where({branch_id: current_admin.branch_id ,enable: true})
+    @product_categories = ProductCategory.where({ branch_id: current_admin.branch_id, enable: true })
   end
 
   # GET /Products/1/edit
@@ -85,6 +85,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find(params[:id])
@@ -92,6 +93,6 @@ class ProductsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_params
-    params.require(:product).permit(:product_category_id, :title, :price, :display, product_picture_attributes: [:picture]).merge(branch_id: current_admin.branch_id)
+    params.require(:product).permit(:product_category_id, :title, :price, :enable, product_picture_attributes: [:picture]).merge(branch_id: current_admin.branch_id)
   end
 end

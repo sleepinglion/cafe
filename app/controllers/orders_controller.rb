@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.orders_products.build
 
-    condition={ branch_id: current_admin.branch_id, display: true, enable: true }
+    condition={ branch_id: current_admin.branch_id, enable: true }
 
     @product_categories = ProductCategory.where(condition)
 

@@ -27,7 +27,7 @@
         </colgroup>
         <thead class="thead-default">
         <tr>
-          <th class="text-center"><%= t(:display,scope:[:activerecord,:attributes,:product]) %></th>
+          <th class="text-center"><%= t(:enable,scope:[:activerecord,:attributes,:product]) %></th>
           <th><%= t(:title,scope:[:activerecord,:attributes,:product]) %></th>
           <th class="text-right"><%= t(:price,scope:[:activerecord,:attributes,:product]) %></th>
           <th class="text-right"><%= t(:order_no,scope:[:activerecord,:attributes,:product]) %></th>
@@ -44,8 +44,8 @@
             <tr>
               <td>
                 <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="product_display<%=index %>" value="<%=product.id %>" <% if product.display %> checked<% end %>>
-                  <label class="custom-control-label" for="product_display<%=index %>"><% if product.display %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
+                  <input type="checkbox" class="custom-control-input" id="product_display<%=index %>" value="<%=product.id %>" <% if product.enable %> checked<% end %>>
+                  <label class="custom-control-label" for="product_display<%=index %>"><% if product.enable %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
                 </div>
               </td>
               <td><%= product.title %></td>
@@ -81,7 +81,7 @@
         </tbody>
       </table>
       <%= paginate @products %>
-      <%= link_to t(:add), new_product_path, :class => "btn btn-primary" %>
+      <%= link_to t(:add), new_product_path(:product_category_id=>@product_category), :class => "btn btn-primary" %>
     </article>
   </div>
 </div>

@@ -9,7 +9,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.date :birthday
       t.integer :orders_count, null: false, default: 0
       t.integer :accounts_count, null: false, default: 0
-      t.boolean :display, null: false, default: true
       t.boolean :enable, null: false, default: true
       t.timestamps
     end

@@ -7,7 +7,7 @@ class ProductCategoriesController < ApplicationController
   def index
     params[:per_page] = 10 unless params[:per_page].present?
 
-    condition={branch_id: current_admin.branch_id ,enable: true}
+    condition = { branch_id: current_admin.branch_id}
 
     @product_category_count = ProductCategory.where(condition).count
     @product_categories = ProductCategory.where(condition).page(params[:page]).per(params[:per_page])
@@ -68,6 +68,7 @@ class ProductCategoriesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_product_category
     @product_category = ProductCategory.find(params[:id])
@@ -75,6 +76,6 @@ class ProductCategoriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def product_category_params
-    params.require(:product_category).permit(:title, :display).merge(branch_id: current_admin.branch_id)
+    params.require(:product_category).permit(:title, :enable).merge(branch_id: current_admin.branch_id)
   end
 end

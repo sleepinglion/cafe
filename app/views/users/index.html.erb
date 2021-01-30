@@ -22,7 +22,7 @@
         </colgroup>
         <thead class="thead-default">
         <tr>
-          <th class="text-center"><%= t(:display, scope: [:activerecord, :attributes, :user]) %></th>
+          <th class="text-center"><%= t(:enable, scope: [:activerecord, :attributes, :user]) %></th>
           <th><%= t(:name, scope: [:activerecord, :attributes, :user]) %></th>
           <th class="text-right"><%= t(:phone, scope: [:activerecord, :attributes, :user]) %></th>
           <th class="text-right"><%= t(:birthday, scope: [:activerecord, :attributes, :user]) %></th>
@@ -39,8 +39,8 @@
             <tr>
               <td>
                 <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="user_display<%=index %>" value="<%=user.id %>" <% if user.display %> checked<% end %>>
-                  <label class="custom-control-label" for="user_display<%=index %>"><% if user.display %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
+                  <input type="checkbox" class="custom-control-input" id="user_display<%=index %>" value="<%=user.id %>" <% if user.enable %> checked<% end %>>
+                  <label class="custom-control-label" for="user_display<%=index %>"><% if user.enable %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
                 </div>
               </td>
               <td><%= link_to user.name,user_path(user) %></td>

@@ -24,6 +24,7 @@ ko:
   transaction_date: '거래일'
   display: '표시함'
   hidden: '숨김'
+  none: '없음'
 
   add_order : "주문추가"
   order : "주문"
@@ -87,6 +88,13 @@ ko:
   link_list: '목록으로'
   link_new: '새로작성'
   link_show: '상세보기'
+
+  new_product_category: '상품분류등록'
+  edit_product_category:  '상품분류수정'
+  new_product: '상품등록'
+  edit_product:  '상품수정'
+  new_operator: '운영자등록'
+  edit_operator:  '운영자수정'
 
   devise:
     confirmations:
@@ -382,7 +390,7 @@ ko:
         title : '분류명'
         order_no : '순서'
         products_count : '해당상품수'
-        display : '표시'
+        enable : '표시'
         updated_at : '수정일시'
         created_at : '생성일시'
       product :
@@ -390,7 +398,7 @@ ko:
         title : '상품명'
         price : '가격'
         order_no : '순서'
-        display : '표시'
+        enable : '표시'
         updated_at : '수정일시'
         created_at : '생성일시'
       product_picture :
@@ -410,13 +418,16 @@ ko:
         last_transaction_date : '최종거래일'
         updated_at : '수정일시'
         created_at : '생성일시'
+      orders_product :
+        quantity : '수량'
+        price : '가격'
       user :
         name : '이름'
         phone : '전화번호'
         email : 'E-mail'
         birthday : '생일'
         address : '주소'
-        display : '표시'
+        enable : '표시'
         updated_at : '수정일시'
         created_at : '생성일시'
     errors:
