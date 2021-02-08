@@ -4,7 +4,7 @@ class CreateAdminLoginLogs < ActiveRecord::Migration[6.0]
       t.references :admin, null: false
       t.integer :client_ip, null: false
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

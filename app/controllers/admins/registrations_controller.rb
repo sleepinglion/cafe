@@ -48,10 +48,10 @@ class Admins::RegistrationsController < Devise::RegistrationsController
     respond_to do |format|
       if result
         format.html { redirect_to new_admin_session_path, :notice => t(:message_success_insert)}
-        format.json { render :json => @user, :status => :created, :location => @user }
+        format.json { render :json => @admin, :status => :created, :location => @admin }
       else
         format.html { render :action => "new" }
-        format.json { render :json => @user.errors, :status => :unprocessable_entity }
+        format.json { render :json => @admin.errors, :status => :unprocessable_entity }
       end
     end
 

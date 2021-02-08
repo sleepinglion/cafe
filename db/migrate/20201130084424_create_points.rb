@@ -5,7 +5,7 @@ class CreatePoints < ActiveRecord::Migration[6.0]
       t.integer :point, null: false, default: 0
       t.integer :point_logs_count, null: false, default: 0
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

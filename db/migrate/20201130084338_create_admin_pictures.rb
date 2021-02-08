@@ -4,7 +4,7 @@ class CreateAdminPictures < ActiveRecord::Migration[6.0]
       t.references :admin, null: false
       t.string :picture, null: false
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

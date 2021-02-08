@@ -39,7 +39,7 @@ class CreateDeviseToAdmins < ActiveRecord::Migration[6.0]
       ## t.string :authentication_token
 
       # Uncomment below if timestamps were not included in your original model.
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :admins, :email, unique: true

@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :orders_count, null: false, default: 0
       t.integer :accounts_count, null: false, default: 0
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :users, :email, :unique => true

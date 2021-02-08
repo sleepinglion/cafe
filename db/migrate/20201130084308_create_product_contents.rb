@@ -4,7 +4,7 @@ class CreateProductContents < ActiveRecord::Migration[6.0]
       t.references :product, null: false
       t.text :content, null: false
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

@@ -8,7 +8,7 @@ class CreateAccounts < ActiveRecord::Migration[6.0]
       t.integer :income, null: false, default: 1
       t.integer :account, null: false, default: 0
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

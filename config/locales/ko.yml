@@ -95,6 +95,8 @@ ko:
   edit_product:  '상품수정'
   new_operator: '운영자등록'
   edit_operator:  '운영자수정'
+  new_point: '포인트등록'
+  edit_point:  '포인트수정'
 
   devise:
     confirmations:

@@ -5,7 +5,7 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.integer :branches_count, null: false, default: 0
       t.boolean :premium, null: false, default: false
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

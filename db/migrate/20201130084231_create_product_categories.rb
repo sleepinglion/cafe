@@ -6,7 +6,7 @@ class CreateProductCategories < ActiveRecord::Migration[6.0]
       t.integer :order_no, null: false, default: 0
       t.integer :products_count, null: false, default: 0
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

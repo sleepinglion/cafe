@@ -7,7 +7,7 @@ class CreateBranches < ActiveRecord::Migration[6.0]
       t.integer :sample, null: false, default: 0
       t.integer :users_count, null: false, default: 0
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

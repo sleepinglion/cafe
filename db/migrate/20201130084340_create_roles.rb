@@ -3,7 +3,7 @@ class CreateRoles < ActiveRecord::Migration[6.0]
     create_table :roles do |t|
       t.string :title, null: false, limit: 60
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

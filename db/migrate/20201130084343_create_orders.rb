@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.integer :total_discount, null: false, default: 0
       t.integer :total_payment, null: false, default: 0
       t.boolean :enable, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
