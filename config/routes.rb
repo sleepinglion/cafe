@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :operators
   resources :branches
 
-  devise_for :admins, :controllers => { :sessions => "admins/sessions",:registrations => "admins/registrations" }, :path_names =>  {:sign_up=>'new',:sign_in => 'login', :sign_out => 'logout'} do
+  devise_for :admins, :controllers => { :omniauth_callbacks=>'admins/omniauth_callbacks', :sessions => "admins/sessions",:registrations => "admins/registrations" }, :path_names =>  {:sign_up=>'new',:sign_in => 'login', :sign_out => 'logout'} do
     get 'edit', :to => 'admins::Registrations#edit'
     get 'login', :to => 'admins::Sessions#new'
     get 'logout', :to=> 'admins::Sessions#destroy'

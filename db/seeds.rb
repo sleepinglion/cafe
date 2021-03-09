@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+AuthenticationProvider.create!(id: 1, name: 'facebook')
+AuthenticationProvider.create!(id: 2, name: 'twitter')
+AuthenticationProvider.create!(id: 3, name: 'google')
 
 Company.create!(id: 1, title: '피씨방')
 Company.create!(id: 2, title: '매점')

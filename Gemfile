@@ -40,6 +40,14 @@ gem 'meta-tags'
 gem 'gretel'
 gem 'globalize'
 
+gem 'omniauth-oauth2'
+gem 'omniauth', "~> 1.9.1"
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-kakao'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -79,9 +87,10 @@ group :production do
   gem 'dotenv-rails'
   gem 'recaptcha', :require => 'recaptcha/rails'
   gem 'rails-letsencrypt'
+  gem 'uglifier'
 
-  gem 'mini_racer', platforms: :ruby
-  gem 'execjs'
+  #gem 'mini_racer', platforms: :ruby
+  #gem 'execjs'
 
   # Redis Cache
   gem 'redis-rails'

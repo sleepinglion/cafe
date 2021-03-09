@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # :nodoc:
-class CreateLetsencryptCertificates < ActiveRecord::Migration[6.0]
+class CreateLetsencryptCertificates < ActiveRecord::Migration[4.2]
   def change
     create_table :letsencrypt_certificates do |t|
       t.string   :domain
